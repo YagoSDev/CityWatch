@@ -1,0 +1,155 @@
+TRANSCRIÇÃO REAL DO MENU — DADOS SIMULADOS
+Gerada por scripts/demonstracao_academica.py; nenhum banco do aplicativo foi alterado.
+Entradas usadas: ver ENTRADAS no script e docs/roteiro_video.md.
+
+Modo acadêmico · dados simulados · sem banco, API, conta ou rede.
+Alterações em memória nesta sessão.
+CityWatch • Gestão acadêmica de ocorrências
+Há inconsistências nos CSVs. Consulte a opção 10 para ver a validação.
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: Total de ocorrências: 12 | Pendências: 9
+Categorias
+  iluminação: 3 (25.00%)
+  acessibilidade: 3 (25.00%)
+  limpeza: 3 (25.00%)
+  conservação: 3 (25.00%)
+Status
+  aberta: 5 (41.67%)
+  em análise: 4 (33.33%)
+  concluída: 3 (25.00%)
+Matriz categoria × status
+  Categoria | aberta | em análise | concluída
+  iluminação | 1 | 1 | 1
+  acessibilidade | 1 | 1 | 1
+  limpeza | 2 | 1 | 0
+  conservação | 1 | 1 | 1
+Origem: 12 ocorrências válidas, 10 eventos e 1 avisos de importação.
+  OC-001: 2026-10-01 → 2026-10-05 = 4 dias
+  OC-004: 2026-10-04 → 2026-10-10 = 6 dias
+  OC-006: 2026-10-06 → 2026-10-12 = 6 dias
+Tempo médio de conclusão: 5.33 dias.
+  total: contagem dos registros válidos
+  quantidade: soma da linha (categoria) ou da coluna (status) na matriz
+  percentual: quantidade / total × 100
+  pendencias: ocorrências abertas + ocorrências em análise
+  tempo_medio: soma dos dias da abertura até a última conclusão / concluídas com histórico válido
+A maioria dos registros permanece pendente (9 de 12).
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: ocorrencias.csv, linha 14 (OC-013): Campo obrigatório ausente: descrição.
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: ID: OC-007 | limpeza | Bairro Leste | 2026-10-07 | em análise | Lixeira pública transbordando
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: Categorias: iluminação, acessibilidade, limpeza, conservação
+Status: aberta, em análise, concluída
+Categoria (opcional): Status (opcional): OC-007 | limpeza | Bairro Leste | 2026-10-07 | em análise | Lixeira pública transbordando
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: Categorias: iluminação, acessibilidade, limpeza, conservação
+ID: Categoria: Descrição: Bairro: Data AAAA-MM-DD (vazio = hoje): Ocorrência cadastrada.
+DEMO-014 | iluminação | Bairro Norte | 2026-10-20 | aberta | Poste apagado próximo à praça fictícia
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: ID: DEMO-014 | iluminação | Bairro Norte | 2026-10-20 | aberta | Poste apagado próximo à praça fictícia
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: Status: aberta, em análise, concluída
+ID: Novo status: Data da alteração (vazio = hoje): Observação: Status atualizado.
+DEMO-014 | iluminação | Bairro Norte | 2026-10-20 | em análise | Poste apagado próximo à praça fictícia
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: ID (vazio = todos): 2026-10-21 | DEMO-014 | aberta → em análise | Exame comunitário simulado
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: Status: aberta, em análise, concluída
+ID: Novo status: Data da alteração (vazio = hoje): Observação: Erro: Status desconhecido(a). Use: aberta, em análise, concluída.
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: Bairro Leste
+  acessibilidade
+    OC-002 | acessibilidade | Bairro Leste | 2026-10-02 | em análise | Rampa pública com desnível
+  iluminação
+    OC-009 | iluminação | Bairro Leste | 2026-10-09 | em análise | Trecho de calçada com pouca luz
+  limpeza
+    OC-007 | limpeza | Bairro Leste | 2026-10-07 | em análise | Lixeira pública transbordando
+Bairro Norte
+  acessibilidade
+    OC-010 | acessibilidade | Bairro Norte | 2026-10-10 | aberta | Obstáculo em passagem acessível
+  conservação
+    OC-004 | conservação | Bairro Norte | 2026-10-04 | concluída | Banco de praça danificado
+  iluminação
+    OC-001 | iluminação | Bairro Norte | 2026-10-01 | concluída | Poste apagado perto da praça
+    DEMO-014 | iluminação | Bairro Norte | 2026-10-20 | em análise | Poste apagado próximo à praça fictícia
+Bairro Oeste
+  acessibilidade
+    OC-006 | acessibilidade | Bairro Oeste | 2026-10-06 | concluída | Piso tátil interrompido
+  conservação
+    OC-012 | conservação | Bairro Oeste | 2026-10-12 | em análise | Guarda-corpo de praça com desgaste
+  limpeza
+    OC-003 | limpeza | Bairro Oeste | 2026-10-03 | aberta | Resíduos em canteiro público
+Bairro Sul
+  conservação
+    OC-008 | conservação | Bairro Sul | 2026-10-08 | aberta | Placa de identificação solta
+  iluminação
+    OC-005 | iluminação | Bairro Sul | 2026-10-05 | aberta | Luminária intermitente na alameda
+  limpeza
+    OC-011 | limpeza | Bairro Sul | 2026-10-11 | aberta | Folhas acumuladas junto à praça
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: Total de ocorrências: 13 | Pendências: 10
+Categorias
+  iluminação: 4 (30.77%)
+  acessibilidade: 3 (23.08%)
+  limpeza: 3 (23.08%)
+  conservação: 3 (23.08%)
+Status
+  aberta: 5 (38.46%)
+  em análise: 5 (38.46%)
+  concluída: 3 (23.08%)
+Matriz categoria × status
+  Categoria | aberta | em análise | concluída
+  iluminação | 1 | 2 | 1
+  acessibilidade | 1 | 1 | 1
+  limpeza | 2 | 1 | 0
+  conservação | 1 | 1 | 1
+Origem: 13 ocorrências válidas, 11 eventos e 1 avisos de importação.
+  OC-001: 2026-10-01 → 2026-10-05 = 4 dias
+  OC-004: 2026-10-04 → 2026-10-10 = 6 dias
+  OC-006: 2026-10-06 → 2026-10-12 = 6 dias
+Tempo médio de conclusão: 5.33 dias.
+  total: contagem dos registros válidos
+  quantidade: soma da linha (categoria) ou da coluna (status) na matriz
+  percentual: quantidade / total × 100
+  pendencias: ocorrências abertas + ocorrências em análise
+  tempo_medio: soma dos dias da abertura até a última conclusão / concluídas com histórico válido
+A maioria dos registros permanece pendente (10 de 13).
+
+1 Cadastrar | 2 Listar | 3 Buscar por ID | 4 Filtrar
+5 Atualizar status | 6 Histórico | 7 Fila de triagem
+8 Indicadores | 9 Agrupar por bairro | 10 Avisos de importação | 0 Sair
+Opção: 

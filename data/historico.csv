@@ -1,0 +1,11 @@
+ocorrencia_id,status_anterior,status_novo,data,observacao
+OC-001,aberta,em análise,2026-10-02,Triagem simulada
+OC-002,aberta,em análise,2026-10-03,Inspeção fictícia solicitada
+OC-001,em análise,concluída,2026-10-05,Luminária fictícia reparada
+OC-004,aberta,em análise,2026-10-05,Verificação simulada
+OC-006,aberta,em análise,2026-10-07,Conferência simulada do trajeto
+OC-004,em análise,concluída,2026-10-10,Banco fictício restaurado
+OC-007,aberta,em análise,2026-10-10,Triagem simulada
+OC-006,em análise,concluída,2026-10-12,Piso fictício recomposto
+OC-009,aberta,em análise,2026-10-12,Vistoria fictícia programada
+OC-012,aberta,em análise,2026-10-14,Vistoria fictícia solicitada

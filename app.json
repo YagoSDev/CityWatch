@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "CityWatch",
+    "slug": "citywatch",
+    "version": "0.1.0",
+    "scheme": "citywatch",
+    "userInterfaceStyle": "automatic",
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Permita usar sua localização ao centralizar o mapa ou indicar o local de uma ocorrência.",
+          "locationAlwaysAndWhenInUsePermission": false,
+          "locationAlwaysPermission": false,
+          "locationFullAccuracyPermission": false,
+          "motionPermission": false,
+          "isIosBackgroundLocationEnabled": false,
+          "isAndroidBackgroundLocationEnabled": false,
+          "isAndroidForegroundServiceEnabled": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Permita selecionar evidências ou uma foto de perfil no CityWatch.",
+          "cameraPermission": "Permita tirar uma foto como evidência da ocorrência.",
+          "microphonePermission": "Permita usar o microfone para ditar a descrição de uma ocorrência."
+        }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Permita usar o microfone para ditar a descrição de uma ocorrência.",
+          "speechRecognitionPermission": "Permita transcrever sua fala para revisar a descrição antes de publicar."
+        }
+      ],
+      "expo-video",
+      [
+        "expo-calendar",
+        {
+          "writeOnlyAccess": true,
+          "calendarPermission": "Permita adicionar os eventos escolhidos à sua agenda.",
+          "writeOnlyCalendarPermission": "Permita adicionar os eventos escolhidos à sua agenda, sem ler seus compromissos.",
+          "remindersPermission": false
+        }
+      ]
+    ],
+    "ios": {
+      "bundleIdentifier": "com.citywatch.mobile"
+    }
+  }
+}

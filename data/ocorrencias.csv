@@ -1,0 +1,14 @@
+id,categoria,descricao,bairro,data,status
+OC-001,iluminação,Poste apagado perto da praça,Bairro Norte,2026-10-01,concluída
+OC-002,acessibilidade,Rampa pública com desnível,Bairro Leste,2026-10-02,em análise
+OC-003,limpeza,Resíduos em canteiro público,Bairro Oeste,2026-10-03,aberta
+OC-004,conservação,Banco de praça danificado,Bairro Norte,2026-10-04,concluída
+OC-005,iluminação,Luminária intermitente na alameda,Bairro Sul,2026-10-05,aberta
+OC-006,acessibilidade,Piso tátil interrompido,Bairro Oeste,2026-10-06,concluída
+OC-007,limpeza,Lixeira pública transbordando,Bairro Leste,2026-10-07,em análise
+OC-008,conservação,Placa de identificação solta,Bairro Sul,2026-10-08,aberta
+OC-009,iluminação,Trecho de calçada com pouca luz,Bairro Leste,2026-10-09,em análise
+OC-010,acessibilidade,Obstáculo em passagem acessível,Bairro Norte,2026-10-10,aberta
+OC-011,limpeza,Folhas acumuladas junto à praça,Bairro Sul,2026-10-11,aberta
+OC-012,conservação,Guarda-corpo de praça com desgaste,Bairro Oeste,2026-10-12,em análise
+OC-013,limpeza,,Bairro Norte,2026-10-13,aberta

@@ -1,6 +1,21 @@
-.env
-.env.local
-.venv/
 node_modules/
+.expo/
+dist/
+expo-env.d.ts
+.DS_Store
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+
+# Backend Python acadêmico
+.venv/
 __pycache__/
-*.sqlite3
+*.py[cod]
+backend/dados/*.sqlite3*
+
+# Estado pessoal do modo acadêmico (os CSVs simulados permanecem versionados)
+data/estado*.json*
+entrega/rascunhos/
+entrega/publicacao*/
+entrega/publicacao*.zip
