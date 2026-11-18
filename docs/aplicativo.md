@@ -77,7 +77,7 @@ A exportação verifica se o Metro consegue gerar o bundle para iOS. A validaç�
 
 1. Abra o projeto Supabase que vai receber o CityWatch. No painel **Connect**, copie a URL e a chave **Publishable** (`sb_publishable_…`).
 2. Crie o arquivo local com `cp .env.example .env.local` e preencha `EXPO_PUBLIC_SUPABASE_URL` e `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. Variáveis `EXPO_PUBLIC_` são incluídas no app. Use somente a chave publicável.
-3. Aplique a [migração de ocorrências](./supabase/migrations/20261116000100_create_reports.sql) no **SQL Editor** do projeto ou pelo fluxo de migrações da CLI. Ela cria a tabela e restringe a leitura e a criação de registros à conta do autor.
+3. Aplique a [migração de ocorrências](../supabase/migrations/20261116000100_create_reports.sql) no **SQL Editor** do projeto ou pelo fluxo de migrações da CLI. Ela cria a tabela e restringe a leitura e a criação de registros à conta do autor.
 4. Em **Authentication**, habilite o provedor de e-mail, mantenha a confirmação por e-mail ativa e configure uma senha mínima de oito caracteres. Configure o envio e uma URL do site apropriada para o destino após a confirmação. [Configuração de autenticação por senha](https://supabase.com/docs/guides/auth/passwords).
 5. Reinicie o Metro com `npm run ios`. Em **Início → avatar → Entrar ou criar conta**, crie uma conta de teste, confirme o e-mail e entre. Em **Relatar**, registre uma ocorrência fictícia e confira **Minhas ocorrências**. Entre com outra conta de teste para verificar que a lista só mostra os relatos dela.
 
@@ -110,7 +110,7 @@ As fotos do cabeçalho fazem parte do app e são selecionadas pela combinação 
 
 - [Parque Ibirapuera – São Paulo](https://commons.wikimedia.org/wiki/File:Ibirapuera_park.jpg), de Wilfredor, sob [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). O carrossel usa a foto do local para ilustrar um evento simulado.
 
-As etapas do projeto estão em [PROGRESS.md](./PROGRESS.md).
+As verificações atuais estão em [validação da entrega](validacao_entrega.md).
 
 ## P.I.T. e sessões de atividade
 
@@ -156,7 +156,7 @@ Para desenvolver com iPhone na mesma rede Wi-Fi, use `npm run dev`: ele inicia o
 
 A aba Comunidade tem tela própria, categorias, pesquisa, filtros de futuros/favoritos, destaques paginados e lista. Os detalhes oferecem programação, favoritos persistentes, compartilhamento nativo e links/mapas cadastrados. A agenda abre um editor nativo para revisão na versão compilada do app; no Expo Go, informa a indisponibilidade.
 
-O catálogo centralizado contém 13 eventos claramente simulados. O backend Python e o cadastro acadêmico foram preservados. Execute `npm run test:events` para os oito testes de eventos. Consulte [a entrega da Comunidade](comunidade-eventos.md) para arquivos alterados, integrações verificadas, testes e pendências, e [as imagens geradas](assets/events/README.md) para arquivos, modo e prompts finais.
+O catálogo centralizado contém 13 eventos claramente simulados. O backend Python e o cadastro acadêmico foram preservados. Execute `npm run test:events` para os oito testes de eventos. Consulte [a entrega da Comunidade](comunidade-eventos.md) para arquivos alterados, integrações verificadas, testes e pendências, e [as imagens geradas](../assets/events/README.md) para arquivos, modo e prompts finais.
 
 ## Home com mapa e Agenda
 

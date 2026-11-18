@@ -196,7 +196,7 @@ Limites: dados fictícios, ausência de atendimento público real, indicador tem
 
 ## Links e entrega
 
-- Repositório público do projeto: aguardando criação/publicação e verificação.
+- Repositório público do projeto: [YagoSDev/citywatch-fiap](https://github.com/YagoSDev/citywatch-fiap), publicado e verificado sem autenticação.
 - Vídeo YouTube Não Listado: será fornecido pelo autor.
 - Competição: a confirmar; não foi escolhida automaticamente.
 

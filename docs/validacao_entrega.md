@@ -19,3 +19,11 @@ Não confirmam a compreensão humana do autor, publicação no GitHub/YouTube ou
 - O teste de exportação cria um pacote limpo e executa seu menu com `python -S`, fora do repositório, sem dependências instaladas. Verifica também a exclusão de credenciais, bancos e dependências.
 
 O pacote contém o código Expo e sua configuração; a pasta nativa iOS gerada e os artefatos de compilação ficam fora da exportação. O projeto iOS existente foi preservado localmente.
+
+## Publicação verificada
+
+- Repositório: https://github.com/YagoSDev/citywatch-fiap
+- A consulta HTTPS sem credenciais retornou `private: false`.
+- Um clone novo com o gerenciador de credenciais desativado foi concluído com sucesso.
+- Executado `python3 -S .../src/sistema.py` a partir de `/tmp`, com as opções 8 e 0: 12 registros válidos, 10 eventos, um aviso e média de 5,33 dias, sem erro.
+- A publicação usa uma cópia revisada dos arquivos, sem enviar o histórico Git local ou alterar o repositório de trabalho existente.
