@@ -1,65 +1,61 @@
+<p align="center"><img src="assets/brand/pit-app-icon.png" width="96" alt="Ícone CityWatch com o mascote P.I.T."></p>
+
 # CityWatch
 
 **Sua cidade, nossa comunidade.**
 
-Informação local e participação comunitária em um aplicativo React Native/Expo, conectado a um núcleo funcional em **Python/FastAPI**. A proposta é permitir que moradores registrem o que encontram pela cidade, consultem ocorrências no mapa e acompanhem demandas, eventos e oportunidades locais.
+CityWatch ajuda moradores a registrar problemas urbanos, consultar ocorrências em um mapa e acompanhar demandas locais. Uma passagem inacessível ou um poste apagado pode virar um relato com descrição e local. A fotografia é opcional.
 
-Uma árvore caída, uma passagem inacessível ou um equipamento danificado podem virar um relato com descrição, local e fotografia opcional, quando for seguro. Os registros têm acompanhamento e status; uma publicação comunitária não equivale a informação verificada ou solicitação oficial à prefeitura.
+O projeto foi desenvolvido para a **Global Solution FIAP**. O núcleo Python funciona no terminal e organiza ocorrências fictícias com estruturas de dados e indicadores. O aplicativo React Native/Expo amplia a experiência com mapa, agenda e participação comunitária.
 
-**Versão atual da documentação: V2 — 19/11/2026.** V1 e V2 organizam os marcos do protótipo; não indicam lançamento na App Store nem substituem a versão técnica `0.1.0` do pacote. Consulte o [histórico de versões](docs/versoes.md).
+[Capturas](#telas-do-aplicativo) · [Demonstrações](#demonstrações) · [Diagramas](#fluxo-e-arquitetura) · [Execução](#executar-a-versão-acadêmica) · [Validação](#testes-e-evidências) · [Entrega](#links-e-entrega)
 
-## V2 — Cidade, identidade e companhia do P.I.T.
+## Telas do aplicativo
 
-- **Cidade contextual:** a localização autorizada em primeiro plano pode definir a cidade do conteúdo; sem ela, o app usa a cidade do perfil. A cidade de residência salva não é alterada automaticamente.
-- **Imagens por contexto:** fotografias com origem documentada, fallback para cidades sem foto e ilustrações variadas por atividade. Cosmópolis tem uma fotografia histórica identificada como tal; exemplos locais continuam marcados como simulados.
-- **P.I.T. mais presente:** abertura do branco para o rosa, identidade do mascote no ícone e nos cabeçalhos, cartões contextuais e painel acessível pela lateral.
-- **Atividades interativas:** contador regressivo, tempo decorrido, mensagens por atividade, cafés no trabalho e outras interações locais. Corrida e passeio oferecem passos com adesão e permissão, quando o dispositivo suporta. Dirigir mantém uma experiência passiva.
-- **Perfil:** avatar ilustrativo padrão fornecido pelo autor, preservando a prioridade de uma fotografia escolhida pelo usuário.
+Capturas reais do iPhone simulado. Os relatos acadêmicos e o catálogo de eventos são demonstrativos.
 
-Guias: [cidade e imagens](docs/cidade-e-imagens.md), [presença do P.I.T.](docs/pit-presenca.md) e [atividades e passos](docs/pit-atividades.md).
+<table>
+<tr>
+<td align="center"><a href="docs/evidencias/screenshots/inicio.png"><img src="docs/evidencias/screenshots/inicio.png" width="220" alt="Tela inicial com a cidade de Cosmópolis e a prévia do mapa"></a><br><strong>Início</strong></td>
+<td align="center"><a href="docs/evidencias/screenshots/mapa.png"><img src="docs/evidencias/screenshots/mapa.png" width="220" alt="Mapa completo com marcadores, filtros e legenda"></a><br><strong>Mapa</strong></td>
+<td align="center"><a href="docs/evidencias/screenshots/cadastro.png"><img src="docs/evidencias/screenshots/cadastro.png" width="220" alt="Formulário cidadão com categorias de ocorrência"></a><br><strong>Cadastro</strong></td>
+</tr>
+<tr>
+<td align="center"><a href="docs/evidencias/screenshots/detalhe-ocorrencia.png"><img src="docs/evidencias/screenshots/detalhe-ocorrencia.png" width="220" alt="Detalhes e histórico de uma ocorrência acadêmica simulada"></a><br><strong>Ocorrência</strong></td>
+<td align="center"><a href="docs/evidencias/screenshots/agenda.png"><img src="docs/evidencias/screenshots/agenda.png" width="220" alt="Calendário mensal de novembro na Agenda do CityWatch"></a><br><strong>Agenda</strong></td>
+<td align="center"><a href="docs/evidencias/screenshots/pit.png"><img src="docs/evidencias/screenshots/pit.png" width="220" alt="Sessão de trabalho com temporizador e contador de cafés"></a><br><strong>P.I.T.</strong></td>
+</tr>
+</table>
 
-## V1 — Base acadêmica e aplicativo integrado
+## Funcionalidades
 
-- **Python independente:** cadastro, consulta por ID, filtros, atualização de status, histórico, fila e indicadores no terminal, sem internet ou dependências externas.
-- **Mapa e agenda:** mapa completo, filtros, detalhes, agenda e eventos favoritados na Comunidade.
-- **Relatos cidadãos:** formulário integrado à API, descrição, evidências opcionais, localização revisável e validação. Ditado depende da build nativa, permissões e disponibilidade do reconhecimento de voz.
-- **Interface:** identidade rosa, modo claro/escuro, perfil pelo avatar e navegação Início / Relatar / Comunidade.
+- **Núcleo Python:** cadastro, busca por ID, filtros, triagem FIFO, status, histórico e indicadores, sem dependências externas.
+- **Mapa:** busca, marcadores agrupados, filtros e detalhes. Com permissão de localização em primeiro plano, o município do conteúdo pode acompanhar o GPS.
+- **Relatos:** formulário com localização revisável e mídia opcional. A publicação cidadã usa a API FastAPI quando disponível.
+- **Comunidade e Agenda:** calendário, detalhes e favoritos de eventos demonstrativos.
+- **P.I.T. e perfil:** introdução animada da interface, mascote contextual, sessões com temporizador e interações por atividade. Passos dependem do sensor e da permissão.
 
-## O que é demonstração e o que vem depois
+O estado técnico do pacote é `0.1.0`. V1 e V2 identificam marcos documentados do protótipo. V3.1 identifica a edição local do vídeo. [Histórico de versões](docs/versoes.md).
 
-O núcleo Python funciona com **12 ocorrências fictícias válidas, 10 eventos históricos e um registro inconsistente deliberado**. Eventos, promoções e outros exemplos do catálogo são demonstrativos; imagens geradas são ilustrativas. Ranking, medalhas, recompensas e respostas institucionais não representam uma operação comercial ou municipal em funcionamento.
+## Demonstrações
 
-Widgets, avisos distribuídos em tempo real, votação pública, encaminhamento oficial e rotas para situações de desastre são evoluções propostas. Os seis GIFs específicos do P.I.T. ainda faltam; o app usa o PNG como fallback. A validação automatizada mais recente aprovou **112 testes (38 Python + 74 TypeScript)**, TypeScript e lint; isso não substitui testes físicos de todos os sensores e permissões.
+<table>
+<tr>
+<td align="center"><img src="docs/evidencias/gifs/mapa-ocorrencia.gif" width="210" alt="Marcador do mapa abre um cartão e os detalhes de uma ocorrência simulada"><br>Mapa e ocorrência</td>
+<td align="center"><img src="docs/evidencias/gifs/agenda-evento.gif" width="210" alt="Agenda mostra um evento salvo e abre seus detalhes"><br>Agenda e evento</td>
+<td align="center"><img src="docs/evidencias/gifs/pit-atividade.gif" width="210" alt="Escolha de atividade e duração no painel do P.I.T."><br>Atividade com P.I.T.</td>
+</tr>
+</table>
 
-## Proposta de negócio
+[Origem e reprodução das capturas](docs/evidencias/CAPTURA.md) · [Relatório da demonstração V3.1](docs/relatorio-demonstracao-v3-1.md)
 
-O plano é manter o acesso essencial gratuito para cidadãos e validar receitas com divulgação de parceiros, espaços patrocinados identificados e campanhas ou eventos locais. Parcerias também podem apoiar ações solidárias e feiras de adoção. Não há receita ou parceria contratada comprovada. Publicidade deve permanecer distinta de alertas e não comprar confirmação de relatos ou prioridade no atendimento público.
+## Fluxo e arquitetura
 
-Veja a [visão do produto e modelo de negócio](docs/visao-do-produto.md), incluindo transparência municipal e rotas em desastres como propostas futuras.
+- [Fluxograma de ocorrências](docs/diagramas/fluxograma-ocorrencias.md) — da validação aos indicadores, incluindo fila e histórico.
+- [Arquitetura do CityWatch](docs/diagramas/arquitetura.md) — relação entre menu, app, API e armazenamento.
 
-## Guia técnico e Global Solution FIAP
+Python implementa as regras. O menu usa CSV e memória ou JSON local. FastAPI e SQLite atendem à extensão mobile. Supabase é opcional para conta e relatos privados. O app usa React Native, Expo Router, TypeScript e APIs do dispositivo.
 
-As seções abaixo documentam a execução, os dados e as regras acadêmicas. O Python continua sendo o núcleo funcional; React Native, FastAPI e Supabase complementam a experiência e não são necessários para demonstrar os requisitos no terminal.
-
-## Equipe e identificação
-
-| Campo | Informação |
-| --- | --- |
-| Projeto / identificação da equipe | CityWatch — trabalho individual |
-| Integrante | Yago Souza Araujo |
-| RM | 575200 |
-| GitHub | [YagoSDev](https://github.com/YagoSDev) |
-| Tutor(a) | Nome não informado; completar se exigido pela turma |
-| Participação na competição | **A confirmar pelo autor.** O modelo pede essa decisão, mas o enunciado não detalha a competição |
-| Vídeo de apresentação | **Pendente: o autor gravará e publicará como Não Listado** |
-
-A atividade aberta no FIAP ON informa entrega na Fase 4, até **19/11/2026 às 23h59**. Há divergência entre o título “1º Semestre” e o corpo “2026.2”; a identificação da edição/pasta deve ser conferida na turma. Não foi inventada uma matrícula de turma ou edição para preencher essa lacuna.
-
-## Comunidade simulada, problema e público beneficiado
-
-O cenário reúne moradores de bairros fictícios Norte, Sul, Leste e Oeste, com praças, passagens e espaços coletivos genéricos. Relatos dispersos dificultam consultar problemas, identificar pendências e acompanhar seu andamento. O público beneficiado são moradores e pessoas que precisam de ambientes urbanos acessíveis e conservados.
-
-O CityWatch organiza demandas de **iluminação, acessibilidade, limpeza e conservação**. Não é um serviço de emergência, não encaminha automaticamente solicitações à prefeitura e não promete execução de reparos. A amostra acadêmica não contém dados pessoais nem localizações residenciais reais.
 
 ## Executar a versão acadêmica
 
@@ -84,6 +80,34 @@ python3 src/sistema.py --estado data/estado-local.json
 Não compartilhe arquivos de estado com dados pessoais. O modo JSON é voltado a uma sessão local por vez, sem garantia de gravações simultâneas entre processos. O caminho dos dados pode ser escolhido com `--dados PASTA`.
 
 O menu oferece Cadastro, Listagem, Busca, Filtros, Atualização, Histórico, Fila, Indicadores, Hierarquia e Avisos. **As regras de negócio são as mesmas do backend**, com persistência acadêmica injetada; não há uma segunda versão das regras a manter.
+
+## Executar o aplicativo e a API
+
+Use Node.js 24 e Xcode com simulador iOS para a build nativa. Na raiz do projeto, prepare a API opcional:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r backend/requirements-dev.txt
+.venv/bin/python -m uvicorn backend.api:app --host 127.0.0.1 --port 8000
+```
+
+Em outro terminal, prepare o app:
+
+```sh
+npm ci
+npx expo start --dev-client --localhost
+```
+
+Com Metro em execução, compile e abra no simulador com `npm run ios:native -- --no-bundler`. Consulte [configuração mobile](docs/aplicativo.md) para o iPhone físico, permissões, conexão e Supabase opcional.
+
+## Guia acadêmico
+
+O cenário acadêmico usa bairros fictícios Norte, Sul, Leste e Oeste, com praças e espaços coletivos genéricos. O público inclui moradores e pessoas que precisam de espaços acessíveis e conservados. O CityWatch organiza demandas de iluminação, acessibilidade, limpeza e conservação. O acompanhamento demonstra mudanças de status no sistema.
+
+[Checklist FIAP com evidências](docs/matriz_conformidade.md) · [Transcrição real do menu](docs/evidencias/menu-demonstracao.txt)
+
+<details>
+<summary>Dados simulados, estruturas e regras</summary>
 
 ## Dados, campos obrigatórios e status
 
@@ -135,6 +159,11 @@ Expressão booleana usada na consulta:
 
 Cada grupo é verdadeiro quando não foi informado filtro ou quando o valor corresponde ao registro. O `and` exige os dois grupos verdadeiros. Com `categoria="limpeza"` e `status="em análise"`, a carga original retorna `OC-007`.
 
+</details>
+
+<details>
+<summary>Entradas, saídas, fórmulas e interpretação dos indicadores</summary>
+
 ## Exemplo completo de uso
 
 Em uma sessão nova, escolha **1 Cadastrar** e informe:
@@ -181,11 +210,8 @@ Origem da média: `OC-001` (4 dias), `OC-004` (6 dias), `OC-006` (6 dias). Concl
 
 **Interpretação:** 75% da amostra permanece pendente. As categorias têm participação igual, mas limpeza concentra duas demandas abertas e nenhuma concluída. As três conclusões fictícias não permitem generalizar um prazo de atendimento real; os indicadores descrevem apenas a amostra simulada.
 
-## Acessibilidade, inclusão e privacidade
+</details>
 
-O terminal permite operar sem mapas, conta ou smartphone. O menu usa números, rótulos de status e mensagens textuais, sem depender de cores ou imagens. O formato continua sujeito às características do terminal/leitor de tela usado; não foi certificado com todos os recursos assistivos. As categorias incluem obstáculos de acessibilidade, e a descrição do problema pode ser informada sem fotografia ou GPS.
-
-Somente códigos e localidades genéricas aparecem nos CSVs. O modo acadêmico não lê microfone, fotos ou localização. O app adicional solicita permissões contextualmente; o backend público não expõe coordenadas privadas dos relatos. Nenhum encaminhamento à prefeitura é afirmado sem confirmação.
 
 ## Organização do projeto
 
@@ -205,25 +231,35 @@ entrega/                     pacote publicável e situação da entrega
 
 Adotamos as pastas pertinentes do [modelo oficial FIAP](https://github.com/equipe1ccon/FIAP-PORTFOLIO-1CCON/tree/master), que permite adaptar diretórios à natureza do projeto. `notebooks/` não é necessário para este trabalho. O projeto existente foi preservado; não foi criada uma cópia independente das regras de negócio.
 
-## Testes e execução opcional do app
+## Testes e evidências
 
-Para testar apenas o novo modo acadêmico, sem instalar pacotes:
-
-```sh
-python3 -m unittest discover -s backend/tests -p 'test_modo_academico.py' -v
-```
-
-Os demais testes de API dependem das dependências opcionais:
+**112 testes aprovados** na revisão de 19/11/2026, sendo 38 Python e 74 TypeScript. Typecheck, lint e demonstração real do núcleo acadêmico passaram.
 
 ```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r backend/requirements-dev.txt
 .venv/bin/python -m unittest discover -s backend/tests -v
+node --experimental-strip-types --test tests/*.test.ts
+npm run typecheck
+npm run lint
+python3 scripts/demonstracao_academica.py
 ```
 
-Há testes de cadastro, busca, filtros, status, histórico, FIFO/LIFO, matriz, indicadores e inconsistências, além da integração cidadã opcional. Os resultados reais desta preparação são registrados em [validação da entrega](docs/validacao_entrega.md).
+[Resultados, comparação com a V1 e limites](docs/validacao_entrega.md) · [Roteiro de apresentação](docs/roteiro_video.md)
 
-A documentação mobile e os registros das etapas estão disponíveis em [docs/aplicativo.md](docs/aplicativo.md). O app/API/SQLite/Supabase são extensões; o avaliador consegue executar o núcleo solicitado somente com o Python. O SQLite continua atendendo a API e não é importado pela entrada acadêmica.
+
+## Proposta de negócio
+
+O plano é manter o acesso essencial gratuito para cidadãos e validar receitas com divulgação de parceiros, espaços patrocinados identificados e campanhas ou eventos locais. Parcerias também podem apoiar ações solidárias e feiras de adoção. Não há receita ou parceria contratada comprovada. Publicidade deve permanecer distinta de alertas e não comprar confirmação de relatos ou prioridade no atendimento público.
+
+Veja a [visão do produto e modelo de negócio](docs/visao-do-produto.md), incluindo transparência municipal e rotas em desastres como propostas futuras.
+
+Widgets, avisos distribuídos em tempo real, votação pública, encaminhamento oficial e rotas para desastres são propostas futuras. Ranking, medalhas e recompensas aparecem como demonstrações. Os seis GIFs de ação do mascote aguardam quadros próprios. A interface usa o PNG com transparência e respeita a preferência por movimento reduzido. [Guia de produção e fallback do P.I.T.](assets/mascot/animations/README.md)
+
+
+## Acessibilidade, inclusão e privacidade
+
+O terminal permite operar sem mapas, conta ou smartphone. O menu usa números, rótulos de status e mensagens textuais, sem depender de cores ou imagens. O formato continua sujeito às características do terminal/leitor de tela usado; não foi certificado com todos os recursos assistivos. As categorias incluem obstáculos de acessibilidade, e a descrição do problema pode ser informada sem fotografia ou GPS.
+
+Somente códigos e localidades genéricas aparecem nos CSVs. O modo acadêmico não lê microfone, fotos ou localização. O app adicional solicita permissões contextualmente; o backend público não expõe coordenadas privadas dos relatos. Nenhum encaminhamento à prefeitura é afirmado sem confirmação.
 
 ## Uso de IA, conclusões e limitações
 
@@ -233,12 +269,26 @@ O protótipo mostra como relatos podem ser transformados em registros consultáv
 
 Limites: dados fictícios, ausência de atendimento público real, indicador temporal com três conclusões, JSON local sem uso multiprocesso, funcionalidades mobile extras fora do escopo básico e calendário/eventos demonstrativos claramente identificados.
 
+## Equipe e identificação
+
+| Campo | Informação |
+| --- | --- |
+| Projeto / identificação da equipe | CityWatch — trabalho individual |
+| Integrante | Yago Souza Araujo |
+| RM | 575200 |
+| GitHub | [YagoSDev](https://github.com/YagoSDev) |
+| Tutor(a) | Nome não informado; completar se exigido pela turma |
+| Participação na competição | **A confirmar pelo autor.** O modelo pede essa decisão, mas o enunciado não detalha a competição |
+| Vídeo de apresentação | [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI) |
+
+A atividade aberta no FIAP ON informa entrega na Fase 4, até **19/11/2026 às 23h59**. Há divergência entre o título “1º Semestre” e o corpo “2026.2”; a identificação da edição/pasta deve ser conferida na turma. Não foi inventada uma matrícula de turma ou edição para preencher essa lacuna.
+
 ## Links e entrega
 
-- Repositório do projeto: [YagoSDev/citywatch-fiap](https://github.com/YagoSDev/citywatch-fiap), atualmente **privado para revisão**, por decisão do autor. O acesso público foi verificado anteriormente; para a entrega, depende de nova autorização do autor.
-- Vídeo YouTube Não Listado: será fornecido pelo autor.
+- Repositório do projeto: [YagoSDev/citywatch-fiap](https://github.com/YagoSDev/citywatch-fiap), com o código, a documentação e as evidências da entrega.
+- Vídeo de apresentação: [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI).
 - Competição: a confirmar; não foi escolhida automaticamente.
 
-O arquivo `.TXT` final só deve ser gerado quando os dois links reais estiverem disponíveis. Ele conterá **exatamente duas linhas, somente os links**, conforme o FIAP ON. [Situação da entrega](entrega/PENDENCIAS.md).
+O TXT local está pronto com as duas URLs. Confira o acesso público ao repositório e a visibilidade do vídeo antes do envio. [Situação da entrega](entrega/PENDENCIAS.md).
 
 A referência de estrutura da FIAP possui atribuição CC BY 4.0; consulte [atribuição do modelo](docs/atribuicao_modelo.md). Nenhuma licença para código ou imagens de terceiros foi presumida.

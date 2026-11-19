@@ -13,7 +13,7 @@ Os seis estados estão implementados em src/features/pit-assets.ts. As seis anim
 
 A conclusão da sessão não concede pontos ou medalhas. Os pontos existentes continuam vinculados aos relatos da conta.
 
-A ferramenta Runway conectada foi consultada e não oferece modelos de vídeo no plano atual. Não há FFmpeg, ImageMagick ou Pillow instalados. Mesmo com um codificador GIF, seriam necessários quadros articulados fiéis ao personagem. Os recortes do pacote não contêm essas sequências.
+A revisão de portfólio dispõe de ferramentas para codificar GIFs. As fontes do P.I.T. fornecem um PNG estático e dois GIFs com outras ações. Para criar os seis estados, a produção precisa de uma sequência aprovada de quadros ou de um rig do personagem. Preserve capacete, corpo compacto, esteiras, olhos digitais rosa e ausência de boca. Exporte quadros RGBA, com enquadramento e escala consistentes. Confira as bordas sobre fundos claro e escuro antes de gerar os GIFs. Os GIFs de navegação da galeria são gravações da interface.
 
 Os arquivos originals/flutuar.gif e originals/piscar_luzes.gif são os GIFs fornecidos anteriormente. Eles têm fundo embutido, não representam as seis ações pedidas e permanecem preservados como originais.
 

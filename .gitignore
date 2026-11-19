@@ -21,3 +21,11 @@ entrega/publicacao*/
 entrega/publicacao*.zip
 entrega/citywatch-entrega/
 entrega/citywatch-entrega.zip
+
+# Capturas brutas e clipes locais para edição
+entrega/midia*/
+entrega/midia*.zip
+
+# Gravações pessoais e transcrições do autor
+entrega/video-autor*/
+entrega/video-final*/
