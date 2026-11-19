@@ -1,14 +1,17 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createContext, useCallback, useContext, useEffect, useRef, useState, type PropsWithChildren } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
 import { loadCommunityEvents } from './events-data';
-import { parseFavorites, type CommunityEvent } from './events-model';
+import { useCurrentCity } from './current-city';
+import { eventsForMunicipality, parseFavorites, type CommunityEvent } from './events-model';
 
 type EventsState = { events: CommunityEvent[]; favorites: string[]; agendaIds: string[]; toggleAgenda: (id: string) => Promise<void>; loading: boolean; writing: boolean; error: string; storageError: string; reload: () => void; toggleFavorite: (id: string) => Promise<void> };
 const EventsContext = createContext<EventsState | null>(null);
 const agendaStorageKey = 'citywatch:agenda:event-ids';
 const storageKey = 'citywatch:community:saved-events'; // Compatível com os favoritos existentes.
 export function EventsProvider({ children }: PropsWithChildren) {
-  const [events, setEvents] = useState<CommunityEvent[]>([]);
+  const currentCity = useCurrentCity();
+  const [catalog, setEvents] = useState<CommunityEvent[]>([]);
+  const events = useMemo(() => eventsForMunicipality(catalog, currentCity.name, currentCity.state), [catalog, currentCity.name, currentCity.state]);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [agendaIds, setAgendaIds] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,9 +29,9 @@ export function EventsProvider({ children }: PropsWithChildren) {
       setEvents(items);
       try {
         const stored = await AsyncStorage.getItem(storageKey);
-        const saved = parseFavorites(stored, items.map(item => item.id));
+        const saved = parseFavorites(stored);
         const storedAgenda = await AsyncStorage.getItem(agendaStorageKey);
-        const agenda = parseFavorites(storedAgenda, items.map(item => item.id));
+        const agenda = parseFavorites(storedAgenda);
         if (active) { setFavorites(saved); setAgendaIds(agenda); loaded.current = true; }
       } catch { if (active) setStorageError('Não foi possível ler seus favoritos e sua agenda. Tente novamente antes de alterá-los.'); }
     }).catch(() => { if (active) setError('Não foi possível carregar os eventos. Tente novamente.'); })

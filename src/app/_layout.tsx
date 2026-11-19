@@ -2,6 +2,10 @@ import { DarkTheme, DefaultTheme, Stack, ThemeProvider, usePathname, useRouter }
 import { StatusBar } from 'expo-status-bar';
 import { SymbolView } from 'expo-symbols';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useCallback, useState } from 'react';
+import { CityLogo } from '../components/city-logo';
+import { Welcome } from '../components/welcome';
+import { PitCompanion } from '../components/pit-companion';
 import { PitExperience } from '../components/pit-experience';
 import { EventsProvider } from '../features/events';
 import { DiscoveryProvider } from '../features/discovery';
@@ -30,8 +34,7 @@ export default function RootLayout() {
             <EventsProvider>
             <DiscoveryProvider>
             <ActivityProvider>
-              <RootNavigation />
-              <PitExperience />
+              <AppExperience />
             </ActivityProvider>
             </DiscoveryProvider>
             </EventsProvider>
@@ -40,6 +43,16 @@ export default function RootLayout() {
       </ProfileProvider>
     </AuthSessionProvider>
   );
+}
+
+function AppExperience() {
+  const [welcoming, setWelcoming] = useState(true);
+  const dismiss = useCallback(() => setWelcoming(false), []);
+  const replay = useCallback(() => setWelcoming(true), []);
+  return <View style={styles.fill}>
+    <RootNavigation />
+    {welcoming ? <Welcome onDismiss={dismiss} /> : <><PitCompanion onReplay={replay} /><PitExperience /></>}
+  </View>;
 }
 
 function RootNavigation() {
@@ -58,7 +71,7 @@ function RootNavigation() {
           <Stack.Screen name="editar-perfil" options={{ title: 'Editar perfil', headerBackTitle: 'Perfil' }} />
           <Stack.Screen name="conta" options={{ title: 'Conta', headerBackTitle: 'Voltar' }} />
           <Stack.Screen name="nova-ocorrencia" options={{ title: 'CityWatch', headerTitleAlign: 'center',
-            headerTitle: () => <Text accessibilityRole="header" style={styles.reportTitle}>CityWatch</Text>,
+            headerTitle: () => <View style={styles.reportBrand}><CityLogo size={26} /><Text accessibilityRole="header" style={styles.reportTitle}>CityWatch</Text></View>,
             headerTintColor: '#FFFFFF', headerTitleStyle: { color: '#FFFFFF', fontWeight: '800' },
             headerStyle: { backgroundColor: '#E9004B' }, headerBackVisible: false,
             headerLeft: () => <Pressable accessibilityRole="button" accessibilityLabel="Voltar"
@@ -81,4 +94,4 @@ function RootNavigation() {
   );
 }
 
-const styles = StyleSheet.create({ fill: { flex: 1 }, reportBack: { flexDirection: 'row', alignItems: 'center', gap: 3, minHeight: 44 }, reportTitle: { color: '#FFFFFF', fontSize: 20, fontWeight: '800' }, reportBackText: { color: '#FFFFFF', fontSize: 15, fontWeight: '600' } });
+const styles = StyleSheet.create({ fill: { flex: 1 }, reportBrand: { flexDirection: 'row', alignItems: 'center', gap: 7 }, reportBack: { flexDirection: 'row', alignItems: 'center', gap: 3, minHeight: 44 }, reportTitle: { color: '#FFFFFF', fontSize: 20, fontWeight: '800' }, reportBackText: { color: '#FFFFFF', fontSize: 15, fontWeight: '600' } });

@@ -45,10 +45,17 @@
           "writeOnlyCalendarPermission": "Permita adicionar os eventos escolhidos à sua agenda, sem ler seus compromissos.",
           "remindersPermission": false
         }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Permita contar seus passos somente quando você ativar esse recurso em uma atividade do P.I.T."
+        }
       ]
     ],
     "ios": {
       "bundleIdentifier": "com.citywatch.mobile"
-    }
+    },
+    "icon": "./assets/brand/pit-app-icon.png"
   }
 }

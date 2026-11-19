@@ -8,7 +8,7 @@ import { EventFavorite } from '../components/event-card';
 import { Action, Notice } from '../components/form';
 import { useEvents } from '../features/events';
 import { addEventToCalendar, openEventLink, openEventMap, shareEvent } from '../features/event-actions';
-import { eventImages } from '../features/event-images';
+import { eventImages, isGeneratedEventImage } from '../features/event-images';
 import { calendarPayload, categoryLabel, eventDate, eventHours, eventMapUrl, eventStatus, safeEventUrl } from '../features/events-model';
 import { type Colors, useColors, useThemedStyles } from '../features/theme';
 
@@ -59,7 +59,7 @@ export default function EventDetail() {
           <View style={styles.badges}><Text style={styles.badge}>{categoryLabel(event.categoria)}</Text>{event.simulado && <Text style={styles.demo}>Evento simulado</Text>}</View>
           <Text accessibilityRole="header" style={styles.title}>{event.titulo}</Text>
           <Text style={styles.subtitle}>{event.resumo}</Text>
-          <Text style={styles.photoNote}>Imagem ilustrativa{['festival', 'running', 'adoption'].includes(event.imagem) ? ' gerada por IA' : ''}</Text>
+          <Text style={styles.photoNote}>Imagem ilustrativa{isGeneratedEventImage(event.imagem) ? ' gerada por IA' : ''}</Text>
         </View>
       </View>
       <View style={styles.content}>

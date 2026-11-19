@@ -6,20 +6,25 @@ import type MapView from 'react-native-maps';
 import type { Region } from 'react-native-maps';
 import { useDiscovery } from '../features/discovery';
 import { contentTypes, defaultMapFilters, distanceKm, filterDiscovery, withinRegion, type DiscoveryItem } from '../features/discovery-model';
-import { defaultMapCity, normalize } from '../features/city';
+import { countryReferenceCenter, normalize } from '../features/city';
+import { useCurrentCity } from '../features/current-city';
 import { useForegroundLocation } from '../features/foreground-location';
 import { useReducedMotion } from '../features/reduced-motion';
 import { useColors } from '../features/theme';
 import { cameraRegion, CityMap } from './city-map';
 import { DiscoveryFilters } from './discovery-filters';
 import { DiscoveryCard } from './discovery-card';
-export function DiscoveryMap({ full = false, focusSearch = false }: { full?: boolean; focusSearch?: boolean }) {
+export function DiscoveryMap(props: { full?: boolean; focusSearch?: boolean }) {
+  const selected = useCurrentCity();
+  return <DiscoveryMapContent key={selected.key} {...props} />;
+}
+function DiscoveryMapContent({ full = false, focusSearch = false }: { full?: boolean; focusSearch?: boolean }) {
   const router = useRouter(); const c = useColors(); const discovery = useDiscovery();
   const { city, cityName, filters, setFilters, cameras, saveCamera } = discovery;
-  const center = city?.center ?? defaultMapCity.center;
+  const center = city?.center ?? countryReferenceCenter;
   const location = useForegroundLocation(); const reduceMotion = useReducedMotion();
   const map = useRef<MapView>(null); const input = useRef<ComponentRef<typeof TextInput>>(null);
-  const [initial] = useState(() => cameras[cityName] ?? cameraRegion(location.coordinate ?? center, 0.07));
+  const [initial] = useState(() => cameras[cityName] ?? cameraRegion(location.coordinate ?? center, city || location.coordinate ? 0.07 : 40));
   const [region, setRegion] = useState<Region>(initial);
   const [following, setFollowing] = useState(!cameras[cityName]);
   const [query, setQuery] = useState(''); const [showFilters, setShowFilters] = useState(false);
@@ -69,7 +74,7 @@ export function DiscoveryMap({ full = false, focusSearch = false }: { full?: boo
     <Text accessibilityRole="header" style={[s.heading, { color: c.text }]}>Perto de você</Text>
     <Pressable accessibilityRole="button" accessibilityLabel="Abrir mapa completo" onPress={() => router.push('/mapa')} style={[s.preview, { backgroundColor: c.surface }]}>
       <View pointerEvents="none" accessible={false} accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={StyleSheet.absoluteFill}>{mapView}</View>
-      <View pointerEvents="none" style={[s.badge, { backgroundColor: c.surface }]}><Text style={{ color: c.text, fontSize: 10 }}>{location.coordinate ? 'Sua localização autorizada' : city ? city.name : 'Referência: São Paulo'} · exemplos identificados</Text></View>
+      <View pointerEvents="none" style={[s.badge, { backgroundColor: c.surface }]}><Text style={{ color: c.text, fontSize: 10 }}>{location.coordinate ? 'Sua localização autorizada' : city ? city.name : 'Autorize a localização para mostrar sua cidade'} · exemplos identificados</Text></View>
       <View pointerEvents="none" style={[s.openBadge, { backgroundColor: c.surface }]}><Text style={{ color: c.link, fontSize: 12, fontWeight: '800' }}>Abrir mapa</Text><SymbolView name="arrow.up.right" size={14} tintColor={c.link} /></View>
     </Pressable>
     {!!discovery.error && <Pressable accessibilityRole="button" accessibilityLabel="Dados do mapa indisponíveis. Tentar novamente" onPress={discovery.retry} style={{ flexDirection: 'row', gap: 6, alignItems: 'center', minHeight: 32 }}><SymbolView name="arrow.clockwise" size={13} tintColor={c.link} /><Text style={{ color: c.muted, fontSize: 11 }}>Dados não atualizados · tentar novamente</Text></Pressable>}
@@ -82,7 +87,7 @@ export function DiscoveryMap({ full = false, focusSearch = false }: { full?: boo
       {!!query && <View style={[s.results, { backgroundColor: c.surface }]}><Text style={{ color: c.muted, fontSize: 11 }}>Busca local demonstrativa · pontos cadastrados, sem API externa de endereços.</Text>{places.map(p => <MapControl key={p.name} label={`Destino: ${p.name}`} onPress={() => selectPlace(p)} />)}{!places.length && <Text style={{ color: c.muted, fontSize: 12 }}>Nenhum destino cadastrado para esta busca. Os conteúdos do mapa também são filtrados pelo texto.</Text>}</View>}
     </View>
     <View style={[s.bottom, { backgroundColor: c.surface, borderColor: c.border }]}>
-      <View style={s.row}>{<MapControl label={location.locating ? 'Localizando…' : following ? 'Minha localização' : 'Voltar à minha localização'} onPress={() => void locate()} icon={'location.fill'} />}{<MapControl label={'Ver cidade'} onPress={showCity} />}</View>
+      <View style={s.row}>{<MapControl label={location.locating ? 'Localizando…' : following ? 'Minha localização' : 'Voltar à minha localização'} onPress={() => void locate()} icon={'location.fill'} />}{<MapControl label={city ? 'Ver cidade' : 'Ver Brasil'} onPress={showCity} />}</View>
       {summary}
       {(selected || list) && <ScrollView style={{ maxHeight: 260 }} contentContainerStyle={{ gap: 8 }} keyboardShouldPersistTaps="handled">
         {<MapControl label={'Fechar painel'} onPress={() => { setSelectedId(undefined); setList(false); }} />}

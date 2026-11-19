@@ -1,6 +1,8 @@
-# CityWatch acadêmico em Python
+# CityWatch — núcleo Python e API
 
 O sistema cadastra, organiza e acompanha ocorrências comunitárias simuladas. Para a entrega acadêmica, execute `python src/sistema.py` na raiz: usa CSVs e memória, com JSON opcional, sem banco ou pacotes externos. Veja o [README principal](../README.md).
+
+**V1:** operações, estruturas e indicadores acadêmicos. **V2:** evolução da interface, cidade e mascote, preservando estas regras. Veja o [histórico por versão](../docs/versoes.md). A API conecta esse núcleo ao app; o Supabase é complementar.
 
 O menu descrito abaixo é a alternativa com persistência SQLite usada também pela API FastAPI. As duas entradas reutilizam o mesmo serviço e regras Python.
 

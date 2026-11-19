@@ -1,0 +1,58 @@
+[
+  {
+    "id": "books",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. A welcoming outdoor community book exchange. Close view of colorful books on a wooden table, hands exchanging a book, trees softly blurred. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "planting",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. Community volunteers planting young native saplings in an urban garden. Close-up of gloved hands, rich soil, green seedlings, natural morning light. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "art",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. An urban sketching workshop. Adults drawing a generic streetscape in sketchbooks, pencils, watercolor palette, small park gathering. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "donations",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. Community food donation drive in a neighborhood hall. Neatly packed baskets of rice beans produce, volunteers organizing supplies, warm atmosphere. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "wellness",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. A small outdoor wellness session with adults doing gentle stretching on mats in a tree-lined urban square, calm morning light, inclusive group. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "market",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. A neighborhood local makers market with handmade goods and produce stalls, friendly small business atmosphere, warm daylight, no legible signs. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "neighbors",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. Neighbors of diverse ages gathering around a long outdoor table in a community courtyard, friendly conversation, afternoon light, documentary feel. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "photography",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. Photography workshop outdoors. Close view of a participant holding a mirrorless camera and instructor pointing toward a generic park scene, creative composition. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "cleanup",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. Volunteers cleaning litter from a generic Brazilian waterfront walkway, reusable gloves and collection bags, bright day, no identifiable landmark. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "coffee",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. A warm inviting neighborhood cafe interior, freshly prepared espresso cup on wooden counter, plants and cozy natural window light, no brand. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "rain",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. Rain falling on a generic Brazilian neighborhood street, wet pavement, umbrellas and gray sky. No flood or disaster, ordinary weather illustration. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "maintenance",
+    "prompt": "Asset type: illustrative photograph for a CityWatch community app event card. A generic urban sidewalk maintenance scene, traffic cones around a small repair site, orderly tools and pavement, no injury or accident, no recognizable city. Photorealistic editorial stock-photo aesthetic, landscape 3:2 composition with room for card overlays, polished natural lighting. Generic fictional Brazilian setting only, no recognizable city landmark, no text, no watermarks, no logos, no identifiable real public figure. This is an illustration of a simulated activity, not documentation of a real event."
+  },
+  {
+    "id": "lighting",
+    "prompt": "Illustrative photograph for a CityWatch simulated urban occurrence card. A generic residential Brazilian street at dusk with one unlit public lamp post visible and neighboring street lights illuminating the sidewalk. No people in danger, no specific landmark. Photorealistic editorial stock photograph, landscape 3:2 composition, no text, no logos, no watermark. Not documentation of a real occurrence or identifiable city."
+  },
+  {
+    "id": "accessibility",
+    "prompt": "Illustrative photograph for a CityWatch simulated urban occurrence card. A well-framed close view of an urban accessible sidewalk ramp with tactile paving at a generic street crossing, neutral daytime light, no city landmark. Photorealistic editorial stock photograph, landscape 3:2 composition, no text, no logos, no watermark. Not documentation of a real occurrence or identifiable city."
+  }
+]

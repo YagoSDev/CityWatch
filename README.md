@@ -1,6 +1,45 @@
-# CityWatch — Neighborhood Action Dashboard
+# CityWatch
 
-Protótipo acadêmico de cadastro e acompanhamento de ocorrências comunitárias para a Global Solution FIAP / CitizenTech. O núcleo é **Python local**, com menu textual, arquivos CSV e estruturas introdutórias. O aplicativo React Native/Expo e a API FastAPI são extensões opcionais preservadas.
+**Sua cidade, nossa comunidade.**
+
+Informação local e participação comunitária em um aplicativo React Native/Expo, conectado a um núcleo funcional em **Python/FastAPI**. A proposta é permitir que moradores registrem o que encontram pela cidade, consultem ocorrências no mapa e acompanhem demandas, eventos e oportunidades locais.
+
+Uma árvore caída, uma passagem inacessível ou um equipamento danificado podem virar um relato com descrição, local e fotografia opcional, quando for seguro. Os registros têm acompanhamento e status; uma publicação comunitária não equivale a informação verificada ou solicitação oficial à prefeitura.
+
+**Versão atual da documentação: V2 — 19/11/2026.** V1 e V2 organizam os marcos do protótipo; não indicam lançamento na App Store nem substituem a versão técnica `0.1.0` do pacote. Consulte o [histórico de versões](docs/versoes.md).
+
+## V2 — Cidade, identidade e companhia do P.I.T.
+
+- **Cidade contextual:** a localização autorizada em primeiro plano pode definir a cidade do conteúdo; sem ela, o app usa a cidade do perfil. A cidade de residência salva não é alterada automaticamente.
+- **Imagens por contexto:** fotografias com origem documentada, fallback para cidades sem foto e ilustrações variadas por atividade. Cosmópolis tem uma fotografia histórica identificada como tal; exemplos locais continuam marcados como simulados.
+- **P.I.T. mais presente:** abertura do branco para o rosa, identidade do mascote no ícone e nos cabeçalhos, cartões contextuais e painel acessível pela lateral.
+- **Atividades interativas:** contador regressivo, tempo decorrido, mensagens por atividade, cafés no trabalho e outras interações locais. Corrida e passeio oferecem passos com adesão e permissão, quando o dispositivo suporta. Dirigir mantém uma experiência passiva.
+- **Perfil:** avatar ilustrativo padrão fornecido pelo autor, preservando a prioridade de uma fotografia escolhida pelo usuário.
+
+Guias: [cidade e imagens](docs/cidade-e-imagens.md), [presença do P.I.T.](docs/pit-presenca.md) e [atividades e passos](docs/pit-atividades.md).
+
+## V1 — Base acadêmica e aplicativo integrado
+
+- **Python independente:** cadastro, consulta por ID, filtros, atualização de status, histórico, fila e indicadores no terminal, sem internet ou dependências externas.
+- **Mapa e agenda:** mapa completo, filtros, detalhes, agenda e eventos favoritados na Comunidade.
+- **Relatos cidadãos:** formulário integrado à API, descrição, evidências opcionais, localização revisável e validação. Ditado depende da build nativa, permissões e disponibilidade do reconhecimento de voz.
+- **Interface:** identidade rosa, modo claro/escuro, perfil pelo avatar e navegação Início / Relatar / Comunidade.
+
+## O que é demonstração e o que vem depois
+
+O núcleo Python funciona com **12 ocorrências fictícias válidas, 10 eventos históricos e um registro inconsistente deliberado**. Eventos, promoções e outros exemplos do catálogo são demonstrativos; imagens geradas são ilustrativas. Ranking, medalhas, recompensas e respostas institucionais não representam uma operação comercial ou municipal em funcionamento.
+
+Widgets, avisos distribuídos em tempo real, votação pública, encaminhamento oficial e rotas para situações de desastre são evoluções propostas. Os seis GIFs específicos do P.I.T. ainda faltam; o app usa o PNG como fallback. A validação automatizada mais recente aprovou **112 testes (38 Python + 74 TypeScript)**, TypeScript e lint; isso não substitui testes físicos de todos os sensores e permissões.
+
+## Proposta de negócio
+
+O plano é manter o acesso essencial gratuito para cidadãos e validar receitas com divulgação de parceiros, espaços patrocinados identificados e campanhas ou eventos locais. Parcerias também podem apoiar ações solidárias e feiras de adoção. Não há receita ou parceria contratada comprovada. Publicidade deve permanecer distinta de alertas e não comprar confirmação de relatos ou prioridade no atendimento público.
+
+Veja a [visão do produto e modelo de negócio](docs/visao-do-produto.md), incluindo transparência municipal e rotas em desastres como propostas futuras.
+
+## Guia técnico e Global Solution FIAP
+
+As seções abaixo documentam a execução, os dados e as regras acadêmicas. O Python continua sendo o núcleo funcional; React Native, FastAPI e Supabase complementam a experiência e não são necessários para demonstrar os requisitos no terminal.
 
 ## Equipe e identificação
 
@@ -151,7 +190,7 @@ Somente códigos e localidades genéricas aparecem nos CSVs. O modo acadêmico n
 ## Organização do projeto
 
 ```text
-README.md                     guia acadêmico principal
+README.md                     produto, versões e guia acadêmico
 src/sistema.py                entrada acadêmica exigida
 src/app/, src/components/     extensão mobile Expo preservada
 backend/                     regras Python compartilhadas, menu e API opcional
@@ -184,7 +223,7 @@ python3 -m venv .venv
 
 Há testes de cadastro, busca, filtros, status, histórico, FIFO/LIFO, matriz, indicadores e inconsistências, além da integração cidadã opcional. Os resultados reais desta preparação são registrados em [validação da entrega](docs/validacao_entrega.md).
 
-A documentação mobile anterior está preservada em [docs/aplicativo.md](docs/aplicativo.md). O app/API/SQLite/Supabase são extensões; o avaliador consegue executar o núcleo solicitado somente com o Python. O SQLite continua atendendo a API e não é importado pela entrada acadêmica.
+A documentação mobile e os registros das etapas estão disponíveis em [docs/aplicativo.md](docs/aplicativo.md). O app/API/SQLite/Supabase são extensões; o avaliador consegue executar o núcleo solicitado somente com o Python. O SQLite continua atendendo a API e não é importado pela entrada acadêmica.
 
 ## Uso de IA, conclusões e limitações
 
@@ -196,7 +235,7 @@ Limites: dados fictícios, ausência de atendimento público real, indicador tem
 
 ## Links e entrega
 
-- Repositório público do projeto: [YagoSDev/citywatch-fiap](https://github.com/YagoSDev/citywatch-fiap), publicado e verificado sem autenticação.
+- Repositório do projeto: [YagoSDev/citywatch-fiap](https://github.com/YagoSDev/citywatch-fiap), atualmente **privado para revisão**, por decisão do autor. O acesso público foi verificado anteriormente; para a entrega, depende de nova autorização do autor.
 - Vídeo YouTube Não Listado: será fornecido pelo autor.
 - Competição: a confirmar; não foi escolhida automaticamente.
 

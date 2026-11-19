@@ -5,7 +5,7 @@ const demo = (id: string, titulo: string, categoria: EventCategory, details: Par
   descricao: 'Atividade fictícia do CityWatch para demonstrar a descoberta de eventos e a participação comunitária. A programação não corresponde a um anúncio oficial e não confirma a realização de uma atividade no local indicado.',
   imagem: 'park', local: 'Espaço comunitário fictício', ...details,
 });
-export const demoEvents: CommunityEvent[] = [
+const seedEvents: CommunityEvent[] = [
   demo('festival-cultural-sp', 'Festival Cultural SP', 'cultura', {
     resumo: 'Arte, música e encontros para celebrar a cidade.', imagem: 'festival', destaque: true,
     dataInicio: '2026-11-28T10:00:00-03:00', dataFim: '2026-11-28T22:00:00-03:00', bairro: 'Centro', local: 'Praça comunitária fictícia', preco: 0, links: [{ titulo: 'Espaços culturais da cidade (Prefeitura)', tipo: 'informacoes', url: 'https://prefeitura.sp.gov.br/web/cultura/w/centros-culturais' }],
@@ -29,3 +29,12 @@ export const demoEvents: CommunityEvent[] = [
   demo('campanha-limpeza-rio', 'Mutirão pela orla', 'meio_ambiente', { cidade: 'Rio de Janeiro', estado: 'RJ', imagem: 'rio', bairro: 'Flamengo', local: 'Praia do Flamengo', periodo: 'Data e horário a confirmar' }),
 ];
 export async function loadCommunityEvents() { return demoEvents; }
+
+const eventPhotos: Record<string, CommunityEvent['imagem']> = {
+  'festival-cultural-sp': 'festival', 'corrida-solidaria-sp': 'running', 'encontro-adocao': 'adoption',
+  'feira-livros': 'books', 'mutirao-plantio': 'planting', 'oficina-desenho': 'art',
+  'campanha-alimentos': 'donations', 'saude-praca': 'wellness', 'feira-parceiros': 'market',
+  'encontro-encerrado': 'neighbors', 'oficina-cancelada': 'photography',
+  'corrida-solidaria-rio': 'running', 'campanha-limpeza-rio': 'cleanup',
+};
+export const demoEvents = seedEvents.map(event => ({ ...event, imagem: eventPhotos[event.id] ?? event.imagem }));

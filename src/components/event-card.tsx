@@ -4,7 +4,7 @@ import { SymbolView } from 'expo-symbols';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useEvents } from '../features/events';
 import { categoryLabel, eventDate, eventStatus, type CommunityEvent } from '../features/events-model';
-import { eventImages } from '../features/event-images';
+import { eventImages, isGeneratedEventImage } from '../features/event-images';
 import { type Colors, useColors, useThemedStyles } from '../features/theme';
 export function EventFavorite({ event, photo = false }: { event: CommunityEvent; photo?: boolean }) {
   const { favorites, loading, writing, storageError, toggleFavorite } = useEvents();
@@ -25,7 +25,7 @@ export function EventCard({ event, featured, width, compact = false }: { event: 
     onPress={open} style={{ minHeight: compact ? (width || 360) * 9 / 16 : Math.max(240, (width || 360) * 0.65), justifyContent: 'flex-end' }}>
     <Image source={eventImages[event.imagem]} style={[StyleSheet.absoluteFill, { width: '100%', height: '100%' }]} resizeMode="cover" />
     <LinearGradient pointerEvents="none" colors={['#11121800', '#11121849', '#111218F5']} locations={[0, 0.3, 1]} style={StyleSheet.absoluteFill} />
-    <Text style={styles.imageNote}>Imagem ilustrativa{['festival', 'adoption', 'running'].includes(event.imagem) ? ' • IA' : ''}</Text>
+    <Text style={styles.imageNote}>Imagem ilustrativa{isGeneratedEventImage(event.imagem) ? ' • IA' : ''}</Text>
     {event.simulado && <Text style={styles.demo}>Simulado</Text>}
     <View style={[styles.heroCopy, compact && { padding: 12, paddingTop: 36, gap: 4 }]}>
       <Text style={styles.badge}>{categoryLabel(event.categoria)}</Text>
@@ -49,7 +49,7 @@ export function EventCard({ event, featured, width, compact = false }: { event: 
       <Text style={themed.rowTitle} numberOfLines={2}>{event.titulo}</Text>
       <Text style={themed.summary} numberOfLines={2}>{event.resumo}</Text>
       <Text style={themed.meta}>{eventDate(event)} · {event.bairro || event.local}</Text>
-      <Text style={themed.simulated}>{event.simulado ? 'Simulado' : 'Evento cadastrado'}{state !== 'programado' ? ` · ${state}` : ''}</Text>
+      <Text style={themed.simulated}>{event.simulado ? 'Simulado' : 'Evento cadastrado'}{isGeneratedEventImage(event.imagem) ? ' · Imagem IA' : ''}{state !== 'programado' ? ` · ${state}` : ''}</Text>
     </View>
   </Pressable>
     <EventFavorite event={event} />

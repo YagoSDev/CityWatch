@@ -1,62 +1,47 @@
-# Aplicativo CityWatch — documentação preservada
+# CityWatch — aplicativo React Native/Expo
 
-Este documento conserva o desenvolvimento mobile. A entrada acadêmica principal está no [README da entrega](../README.md). Algumas seções são registros históricos; os guias específicos mais recentes descrevem o comportamento atual.
+Guia atualizado na **V2 (19/11/2026)**. Consulte o [histórico V1/V2](versoes.md), a [visão do produto](visao-do-produto.md) e o [núcleo acadêmico independente](../README.md).
 
-# CityWatch
+A Home reúne cabeçalho da cidade, mapa e Agenda. Início, Relatar e Comunidade permanecem na barra inferior; o avatar abre o perfil. O tema segue o dispositivo. A localização autorizada pode definir o município do conteúdo; sem ela, vale o perfil. Exemplos e imagens ilustrativas são identificados como tais.
 
-MVP mobile de participação comunitária da Global Solution da FIAP. A tela inicial usa a cidade escolhida no perfil e apresenta exemplos fictícios de clima, eventos e ocorrências. O tema claro ou escuro acompanha a aparência do dispositivo.
+## Executar no simulador iOS — V2
 
-O núcleo acadêmico é o módulo Python em `backend/`, com menu textual, dados CSV e uma API FastAPI. Para demonstrar os requisitos da FIAP, inicie o menu com `python3 -m backend.main` ou rode a API e abra **Relatar → Abrir ocorrências acadêmicas** no app. [Instruções do núcleo Python](../backend/README.md).
+Use Node.js 24, npm, Xcode e um runtime iOS. A base atual usa Expo SDK 58 e React Native 0.88.
 
-## Executar no simulador iOS
+```sh
+npm ci
+npx expo start --dev-client --lan
+```
 
-Use Node.js 24 LTS, npm e Xcode com um runtime de iOS instalado. O projeto usa Expo SDK 58, React Native 0.88, TypeScript e Expo Router.
+Em outro terminal, compile/abra a build nativa:
 
-1. Confira o Xcode ativo e os runtimes disponíveis.
+```sh
+npm run ios:native -- --no-bundler
+```
 
-   ```sh
-   xcode-select -p
-   xcodebuild -checkFirstLaunchStatus
-   xcrun simctl list runtimes
-   xcrun simctl list devices available
-   ```
+Prepare o ambiente Python conforme o README do backend e inicie a API em outro terminal (`.venv/bin/python -m uvicorn backend.api:app --host 0.0.0.0 --port 8000`). O comando Expo acima inicia Metro para a build de desenvolvimento. Veja [a conexão da API](cadastro-ocorrencias.md) e `.env.example` para as variáveis públicas. Não versione credenciais ou endereços privados pessoais. A API pode ser iniciada separadamente seguindo o [README Python](../backend/README.md).
 
-   Se o Xcode solicitar a licença, execute `sudo xcodebuild -license` no Terminal, revise os termos e aceite se concordar. Se a configuração inicial estiver pendente, abra o Xcode e conclua as telas de instalação. Para instalar um runtime de iOS, use **Xcode → Settings → Components**.
+Os recursos nativos de ditado, sensores e calendário precisam de uma build compatível; Expo Go não substitui essa verificação. A versão gerada do projeto Xcode e seus builds ficam fora do pacote publicado e podem ser recriados pelas ferramentas Expo.
 
-2. Na pasta do projeto, instale as dependências e inicie o app.
+O sistema acadêmico funciona à parte, sem npm e sem servidor:
 
-   ```sh
-   npm ci
-   npm run ios
-   ```
+```sh
+python3 src/sistema.py
+```
 
-3. Abra o Expo Go se o simulador pedir confirmação. Em Xcode 27, o simulador é exibido no Device Hub. Sem sessão de atividade salva, a abertura oferece o planejamento com P.I.T. sobre a Home desfocada. Use **Ignorar por agora** para entrar diretamente. Role a tela para ver os registros de demonstração. Para abrir sem o botão flutuante de desenvolvimento do Expo Go, execute `EXPO_NO_DEV_MENU=1 npm run ios`. [Opções da CLI do Expo](https://docs.expo.dev/more/expo-cli/).
+## Conferir a V2
 
-## Roteiro para a demonstração
+1. Veja a abertura branco/preto → rosa/branco com P.I.T. e entre na Home.
+2. Abra o mapa, filtros e detalhes; solicite localização somente pela ação correspondente. Com cidade autorizada reconhecida, confira o conteúdo contextual.
+3. Consulte Comunidade, favorite um evento e confira a Agenda. O catálogo é simulado.
+4. Inicie uma atividade pelo P.I.T.; confira mensagem, temporizador e o contador correspondente. Passos requerem sensor e autorização, com estados claros quando indisponíveis.
+5. Abra o avatar e o cadastro cidadão; verifique confirmação do servidor antes de apresentar publicação como concluída.
 
-1. Na abertura do P.I.T., escolha uma das seis atividades e informe a duração entre 1 e 480 minutos. Use **Iniciar sessão** para fechar a sobreposição e voltar ao Início.
-2. Abra **Gerenciar** para prolongar por 15 minutos, trocar atividade ou finalizar. O fim do prazo mostra primeiro um aviso dentro do aplicativo. O app verifica o horário ao retornar do segundo plano.
-3. Ignore a abertura para explorar a Home com fotografia, atalhos e carrossel **Alertas da cidade**. O próximo alerta aparece parcialmente.
-4. Abra um alerta para consultar os dados e o histórico da API Python. São registros acadêmicos simulados, sem verificação independente e sem horário da ocorrência informado.
-5. Toque em **Comunidade** na barra inferior para rolar ao carrossel **Acontece em [cidade]**. Cada página apresenta um evento simulado em um cartão 9:16. Use as bolinhas ou deslize horizontalmente para trocar.
-6. **Início** retorna ao topo e **Relatar** abre diretamente o cadastro acadêmico.
-7. A busca e o GPS estão na seção **Perto de você** e no mapa completo. Os relatos da conta Supabase continuam acessíveis no perfil.
+Guias atuais: [mapa](mapa-interativo.md), [agenda](agenda-calendario.md), [cadastro](cadastro-ocorrencias.md), [cidade e imagens](cidade-e-imagens.md), [P.I.T.](pit-presenca.md) e [atividades](pit-atividades.md).
 
-O mapa e os alertas consultam a API Python. As posições dos registros acadêmicos são fictícias e estáveis por identificador. A localização do usuário no minimapa é arredondada para duas casas decimais, consultada somente pela ação **Minha localização** no mapa completo.
+## Registros técnicos da V1 e integrações
 
-## Testar o mapa e a localização
-
-- Na tela **Início**, toque em **Abrir mapa completo** na seção **Perto de você** para abrir o mapa completo. Toque em **Para onde você quer ir?** para buscar pontos do catálogo local, como **MASP** em São Paulo e **Pão de Açúcar** no Rio de Janeiro. Para outras cidades, São Paulo continua disponível como mapa de referência. Selecione o resultado para centralizar o mapa nele.
-- Com o simulador ligado, defina uma coordenada de teste. Depois toque em **Minha localização** na tela **Mapa** e escolha **Permitir Uma Vez** para verificar o marcador.
-
-  ```sh
-  xcrun simctl location booted set -23.5620,-46.6580
-  ```
-
-- Para testar a recusa, escolha **Não Permitir** no aviso do iOS. A tela mostra como recuperar o acesso. Para repetir o cenário no Expo Go, execute `xcrun simctl privacy booted reset location host.exp.Exponent`.
-- Para encerrar a simulação de localização, execute `xcrun simctl location booted clear`.
-
-O app solicita a localização em primeiro plano apenas ao tocar em **Minha localização** e mantém a coordenada consultada em memória durante a execução. No simulador, o aviso de permissão pertence ao Expo Go. Uma build própria usa a mensagem em português configurada pelo CityWatch.
+As seções seguintes preservam registros de desenvolvimento. Catálogo, aparência e sessões evoluíram na V2; para o comportamento atual, consulte os guias acima. Permissões e serviços dependem da plataforma e da configuração utilizada.
 
 ## Testar em um iPhone físico
 

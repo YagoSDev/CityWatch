@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
 import { useState } from 'react';
 import { Linking, StyleSheet, Text, View } from 'react-native';
+import { PitCard } from '../components/pit-card';
 import { Avatar } from '../components/avatar';
 import { CommunityRewards } from '../components/community-rewards';
 import { Action, Notice } from '../components/form';
@@ -34,9 +35,11 @@ export default function ProfileScreen() {
           </View>
           {profile.bio ? <Text style={body}>{profile.bio}</Text> : null}
           {!loading && !session && <Text style={styles.tag}>Perfil demonstrativo</Text>}
+          {!profile.avatar && <Text style={styles.tag}>Imagem de perfil ilustrativa</Text>}
         </View>
       </View>
       {ready && !editable && <Notice error message="Não foi possível carregar o perfil salvo neste dispositivo." />}
+      <PitCard title="Cada contribuição conta" message="Vamos planejar sua próxima atividade e descobrir novas formas de participar da cidade?" state="celebration" />
       <Action title="Editar perfil" onPress={() => router.push('/editar-perfil')} disabled={!editable} />
       <Action title={session ? 'Gerenciar conta' : 'Entrar ou criar conta'} secondary
         disabled={loading} onPress={() => router.push('/conta')} />

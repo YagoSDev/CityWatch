@@ -7,6 +7,7 @@ import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import { type ComponentRef, useRef, useState } from 'react';
 import { ActivityIndicator, Image, Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, type ScrollViewInstance, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { PitCard } from '../components/pit-card';
 import { Action, Field, Notice } from '../components/form';
 import { EvidenceVideo } from '../components/evidence-video';
 import { academicRequest, type OcorrenciaAcademica } from '../features/academic-api';
@@ -119,6 +120,7 @@ export default function NewOccurrence() {
             <Text accessibilityRole="header" style={styles.title}>Relatar ocorrência</Text>
             <Text style={styles.subtitle}>Ajude a cuidar da sua cidade. Conte o que você encontrou.</Text>
           </View>
+          <PitCard title="Estou com você neste relato" message="Conte o que aconteceu e confira o local. Uma foto é opcional: sua segurança vem primeiro." state="alert" />
           <View style={styles.card}>
             <Text accessibilityRole="header" style={styles.heading}>1. Tipo de ocorrência <Text style={styles.required}>*</Text></Text>
             <View style={styles.types}>

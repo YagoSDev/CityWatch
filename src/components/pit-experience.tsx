@@ -8,6 +8,7 @@ import { activities, useActivity } from '../features/activity';
 import { useProfile } from '../features/profile';
 import { useReducedMotion } from '../features/reduced-motion';
 import { type Colors, useColors, useThemedStyles } from '../features/theme';
+import { ActivityDashboard } from './activity-dashboard';
 import { CityWatchMascot } from './city-watch-mascot';
 import { Action, Field, Notice } from './form';
 
@@ -59,8 +60,8 @@ export function PitExperience() {
                     <SymbolView name={{ ios: 'xmark', android: 'close' }} size={18} tintColor={colors.muted} />
                   </Pressable>
                 </View>
-                <CityWatchMascot state={activity.dialog === 'celebration' ? 'celebration' :
-                  activity.dialog === 'duration' ? chosen?.pit : 'hello'} size={155} />
+                {activity.dialog !== 'manage' && <CityWatchMascot state={activity.dialog === 'celebration' ? 'celebration' :
+                  activity.dialog === 'duration' ? chosen?.pit : 'hello'} size={155} />}
 
                 {activity.dialog === 'activity' && <>
                   <Text accessibilityRole="header" style={styles.title}>E aí! O que você está pensando em fazer agora?</Text>
@@ -97,11 +98,7 @@ export function PitExperience() {
                 </>}
 
                 {activity.dialog === 'manage' && activity.ready && <>
-                  <Text accessibilityRole="header" style={styles.title}>{current?.label ?? 'Sua atividade'}</Text>
-                  {activity.session && <Text style={styles.copy}>
-                    {activity.expired ? 'O tempo planejado terminou.' :
-                      `${Math.ceil(Math.max(0, activity.session.endsAt - activity.now) / 60000)} minutos restantes`}
-                  </Text>}
+                  <ActivityDashboard manage={false} />
                   <Action title="Prolongar por 15 minutos" secondary disabled={activity.busy}
                     onPress={() => void activity.extend(15)} />
                   <Action title="Trocar atividade" secondary disabled={activity.busy} onPress={activity.change} />

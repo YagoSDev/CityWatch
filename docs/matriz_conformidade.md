@@ -28,7 +28,7 @@ Referência: atividade lida no FIAP ON em 18/11/2026: https://on.fiap.com.br/mod
 | Contexto e público | README | Atendido |
 | Acessibilidade, inclusão e privacidade | README e limites documentados | Atendido, sem alegar certificação universal |
 | Declaração de IA | `docs/uso_ia.md`, assistência em código descrita honestamente | Atendido |
-| GitHub público acessível | [YagoSDev/citywatch-fiap](https://github.com/YagoSDev/citywatch-fiap), acesso sem autenticação verificado | Atendido |
+| GitHub público acessível | Repositório criado e verificado anteriormente; tornado privado a pedido do autor para revisão | Pendente de nova autorização para tornar público |
 | Vídeo Não Listado e link no README | Autor gravará e fornecerá o link | Pendente, adiado pelo autor |
 | TXT somente com dois links | Gerador preparado; não gera arquivo com links ausentes | Depende do vídeo |
 | Envio FIAP ON | Nenhum upload/submissão realizado | Pendente |

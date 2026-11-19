@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { contentTypes, discoveryStatus, verificationLabel, type DiscoveryItem } from '../features/discovery-model';
-import { eventImages } from '../features/event-images';
+import { eventImages, isGeneratedEventImage } from '../features/event-images';
 import { useColors } from '../features/theme';
 export function DiscoveryCard({ item, summary = false }: { item: DiscoveryItem; summary?: boolean }) {
   const c = useColors(); const router = useRouter();
@@ -14,7 +14,7 @@ export function DiscoveryCard({ item, summary = false }: { item: DiscoveryItem; 
     <Text numberOfLines={summary ? 2 : undefined} style={{ color: c.text, fontSize: 13 }}>{item.description}</Text>
     <Text style={{ color: c.muted, fontSize: 11 }}>Fonte: {item.source || 'Comunidade CityWatch'} · {verificationLabel(item)}</Text>
     <Text style={{ color: c.muted, fontSize: 12 }}>{item.start ? item.dateOnly ? `${new Date(item.start).toLocaleDateString('pt-BR')} · horário não informado` : new Date(item.start).toLocaleString('pt-BR') : 'Data / horário não informados'} · {discoveryStatus(item)}</Text>
-    <Text style={{ color: c.muted, fontSize: 11 }}>{item.fictionalPosition ? 'Posição fictícia para demonstração. ' : ''}Imagem ilustrativa. {item.verified ? 'Verificação disponível.' : 'Sem confirmação oficial.'}</Text>
+    <Text style={{ color: c.muted, fontSize: 11 }}>{item.fictionalPosition ? 'Posição fictícia para demonstração. ' : ''}Imagem ilustrativa{isGeneratedEventImage(item.image) ? ' gerada por IA' : ''}. {item.verified ? 'Verificação disponível.' : 'Sem confirmação oficial.'}</Text>
     <Pressable accessibilityRole="button" accessibilityLabel={`Ver detalhes: ${item.title}`} onPress={open} style={[s.button, { backgroundColor: c.soft }]}><Text style={{ color: c.link, fontWeight: '700' }}>Ver detalhes →</Text></Pressable>
   </View>;
 }

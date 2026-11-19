@@ -12,7 +12,7 @@ export const eventCategories = [
 export type EventCategory = Exclude<typeof eventCategories[number]['id'], 'todos'>;
 export type CommunityEvent = {
   id: string; titulo: string; resumo: string; descricao: string; categoria: EventCategory;
-  imagem: 'festival' | 'running' | 'adoption' | 'park' | 'rio';
+  imagem: 'festival' | 'running' | 'adoption' | 'park' | 'rio' | 'books' | 'planting' | 'art' | 'donations' | 'wellness' | 'market' | 'neighbors' | 'photography' | 'cleanup' | 'coffee' | 'rain' | 'maintenance' | 'lighting' | 'accessibility';
   dataInicio?: string; dataFim?: string; periodo?: string; fuso: string;
   local: string; bairro?: string; cidade: string; estado: string;
   endereco?: string; latitude?: number; longitude?: number; localVerificado?: boolean;
@@ -70,9 +70,23 @@ export function eventHours(event: CommunityEvent) {
   const format = (date: string) => new Date(date).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', timeZone: event.fuso });
   return event.dataInicio ? `${format(event.dataInicio)}${event.dataFim ? ` às ${format(event.dataFim)}` : ' · término não informado'}` : 'Horário a confirmar';
 }
-export function parseFavorites(value: string | null, validIds: string[]) {
+export function parseFavorites(value: string | null, validIds?: string[]) {
   if (!value) return [];
   const parsed: unknown = JSON.parse(value);
   if (!Array.isArray(parsed) || parsed.some(id => typeof id !== 'string')) throw new Error('Lista de favoritos inválida.');
-  return [...new Set(parsed.filter(id => validIds.includes(id)))];
+  return [...new Set(parsed.filter(id => !validIds || validIds.includes(id)))];
+}
+
+/** Local examples are NEW simulations; real or verified event places are never relabelled. */
+export function eventsForMunicipality(items: CommunityEvent[], city: string, state: string): CommunityEvent[] {
+  if (items.some(item => normalized(item.cidade) === normalized(city) && item.estado === state)) return items;
+  const templates = items.filter(item => item.simulado && normalized(item.cidade) === 'sao paulo' && item.estado === 'SP');
+  const slug = `${normalized(city).replace(/[^a-z0-9]+/g, '-')}:${state}`;
+  const local = templates.map(item => ({ ...item, id: `city-demo:${slug}:${item.id}`,
+    titulo: item.titulo.replace(/\s+SP$/, ''), cidade: city, estado: state,
+    local: `Espaço comunitário fictício · ${city}`, bairro: undefined, endereco: undefined,
+    latitude: undefined, longitude: undefined, localVerificado: false, links: undefined, organizador: undefined,
+    descricao: `Exemplo simulado de ${item.titulo.replace(/\s+SP$/, '')} para explorar a comunidade de ${city} – ${state}. Não existe programação, endereço ou organizador local confirmado. A imagem é ilustrativa e não documenta um evento nesta cidade.`,
+  }));
+  return [...items, ...local];
 }

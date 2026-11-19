@@ -3,15 +3,15 @@ import { Pressable, ScrollView, Text, View } from 'react-native';
 import { useEvents } from '../features/events';
 import { filterEvents, eventStatus } from '../features/events-model';
 import { useNow } from '../features/use-now';
-import { useProfile } from '../features/profile';
+import { useCurrentCity } from '../features/current-city';
 import { useReducedMotion } from '../features/reduced-motion';
 import { useColors } from '../features/theme';
 import { EventCard } from './event-card';
 export function CommunityCarousel({ width }: { width: number }) {
-  const c = useColors(); const reduced = useReducedMotion(); const now = useNow(); const { profile } = useProfile();
+  const c = useColors(); const reduced = useReducedMotion(); const now = useNow(); const currentCity = useCurrentCity();
   const { events, loading, error, reload } = useEvents();
   const scroll = useRef<ComponentRef<typeof ScrollView>>(null); const [page, setPage] = useState(0);
-  const items = filterEvents(events, { city: profile.city, state: profile.state }, now)
+  const items = filterEvents(events, { city: currentCity.name, state: currentCity.state }, now)
     .filter(event => !event.publicidade && eventStatus(event, now) === 'programado')
     .sort((a, b) => Number(b.destaque) - Number(a.destaque)).slice(0, 6);
   if (loading && !items.length) return <Text style={{ color: c.muted, fontSize: 12 }}>Carregando eventos…</Text>;

@@ -2,17 +2,24 @@ import type { ImageSourcePropType } from 'react-native';
 import type { LatLng } from 'react-native-maps';
 import { destinations, saoPaulo } from './demo';
 
-type City = {
-  id: 'sp' | 'rj';
+export type City = {
+  id: string;
   name: string;
   landmark: string;
   description: string;
-  photo: ImageSourcePropType;
+  photo?: ImageSourcePropType;
   center: LatLng;
   destinations: { name: string; coordinate: LatLng }[];
 };
 
 const cities: Record<string, City> = {
+  'cosmopolis:SP': {
+    id: 'cosmopolis', name: 'Cosmópolis', landmark: 'Centro de Cosmópolis',
+    description: 'Foto de arquivo de 2007 · Carlosar / Wikimedia Commons.',
+    photo: require('../../assets/cities/cosmopolis-centro.jpg'),
+    // Approximate municipal reference from IBGE map 3512803; never a user address.
+    center: { latitude: -22.64, longitude: -47.2 }, destinations: [],
+  },
   'sao paulo:SP': {
     id: 'sp',
     name: 'São Paulo',
@@ -46,3 +53,5 @@ export function findCity(city: string, state: string): City | undefined {
 }
 
 export const defaultMapCity = cities['sao paulo:SP'];
+
+export const countryReferenceCenter = { latitude: -14.2, longitude: -51.9 }; // Broad map reference, never a city location.

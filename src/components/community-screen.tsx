@@ -4,11 +4,14 @@ import { SymbolView } from 'expo-symbols';
 import { useRef, useState, type ComponentRef } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useCurrentCity } from '../features/current-city';
 import { avatarUri, useProfile } from '../features/profile';
 import { useEvents } from '../features/events';
 import { eventCategories, filterEvents } from '../features/events-model';
 import { useReducedMotion } from '../features/reduced-motion';
 import { type Colors, useColors, useThemedStyles } from '../features/theme';
+import { CityLogo } from './city-logo';
+import { PitCard } from './pit-card';
 import { Avatar } from './avatar';
 import { EventCard } from './event-card';
 import { Action, Notice } from './form';
@@ -18,6 +21,7 @@ export default function CommunityScreen() {
   const colors = useColors();
   const insets = useSafeAreaInsets();
   const { profile } = useProfile();
+  const currentCity = useCurrentCity();
   const router = useRouter();
   const params = useLocalSearchParams<{ salvos?: string; consulta?: string }>();
   const { events, favorites, loading, error, storageError, reload } = useEvents();
@@ -35,10 +39,10 @@ export default function CommunityScreen() {
   const carousel = useRef<ComponentRef<typeof ScrollView>>(null);
   const list = useRef<ComponentRef<typeof ScrollView>>(null);
   const listY = useRef(0);
-  const filtered = filterEvents(events, { category, query, futureOnly, favoritesOnly, favorites, city: profile.city, state: profile.state });
+  const filtered = filterEvents(events, { category, query, futureOnly, favoritesOnly, favorites, city: currentCity.name, state: currentCity.state });
   const featured = filtered.filter(event => event.destaque);
-  const rows = filtered.filter(event => event.id !== featured[0]?.id);
-  const filterKey = `${category}:${query}:${futureOnly}:${favoritesOnly}:${profile.city}:${profile.state}`;
+  const rows = filtered.filter(event => !featured.some(highlight => highlight.id === event.id));
+  const filterKey = `${category}:${query}:${futureOnly}:${favoritesOnly}:${currentCity.name}:${currentCity.state}`;
   const carouselKey = `${filterKey}:${featured.map(event => event.id).join(',')}:${width}`;
   const currentPage = page.key === carouselKey ? page.index : 0;
   function resetPage() { setPage({ key: '', index: 0 }); carousel.current?.scrollTo({ x: 0, animated: false }); }
@@ -46,8 +50,8 @@ export default function CommunityScreen() {
     <LinearGradient colors={colors.dark ? ['#ED0050', '#A4003B', '#39172E'] : ['#ED0050', '#C40045', '#A9003E']}
       style={[styles.header, { paddingTop: insets.top + 3 }]}>
       <View style={styles.brand}>
-        <SymbolView name="mappin.and.ellipse" size={40} tintColor="#FF84AD" />
-        <View style={{ flexShrink: 1 }}><Text maxFontSizeMultiplier={1.3} style={styles.brandTitle}>CityWatch</Text><Text numberOfLines={1} maxFontSizeMultiplier={1.3} style={styles.brandSubtitle}>Comunidade · {profile.city}</Text></View>
+        <CityLogo size={40} />
+        <View style={{ flexShrink: 1 }}><Text maxFontSizeMultiplier={1.3} style={styles.brandTitle}>CityWatch</Text><Text numberOfLines={1} maxFontSizeMultiplier={1.3} style={styles.brandSubtitle}>Comunidade · {currentCity.name}</Text></View>
       </View>
       <Pressable accessibilityRole="button" accessibilityLabel="Abrir perfil" onPress={() => router.push('/perfil')} style={styles.avatar}>
         <Avatar name={profile.name} uri={avatarUri(profile.avatar)} size={45} />
@@ -104,6 +108,7 @@ export default function CommunityScreen() {
           {rows.length === 0 && <Text style={styles.subtitle}>Os eventos desta seleção estão nos destaques acima.</Text>}
         </View>
       </>}
+      <PitCard title="Vamos participar?" message="Salve os eventos que combinam com você. Seus favoritos também entram na Agenda." state="celebration" />
       <View style={styles.footer}><Text style={styles.caption}>Eventos fictícios para demonstração. Fotos ilustrativas; nenhuma programação oficial ou inscrição é confirmada.</Text>
         <Action title="Outros recursos da comunidade" secondary onPress={() => router.push('/recursos-comunidade')} />
       </View>

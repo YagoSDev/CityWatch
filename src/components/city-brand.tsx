@@ -1,4 +1,4 @@
-import { SymbolView } from 'expo-symbols';
+import { CityLogo } from './city-logo';
 import { StyleSheet, Text, View } from 'react-native';
 import { useColors } from '../features/theme';
 
@@ -7,7 +7,7 @@ export function CityBrand() {
 
   return (
     <View accessible accessibilityLabel="CityWatch. Sua cidade, nossa comunidade." style={styles.brand}>
-      <SymbolView name={{ ios: 'mappin.circle.fill', android: 'location_on' }} size={40} tintColor="#FF3F83" />
+      <CityLogo size={40} />
       <View style={styles.copy}>
         <Text maxFontSizeMultiplier={1.3} style={styles.title}>City<Text style={styles.accent}>Watch</Text></Text>
         <Text maxFontSizeMultiplier={1.65} style={[styles.subtitle, { color: colors.onAction }]}>Sua cidade, nossa comunidade</Text>

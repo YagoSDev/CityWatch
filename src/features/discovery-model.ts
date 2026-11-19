@@ -87,7 +87,7 @@ export function mapOccurrences(items: OcorrenciaAcademica[], center: Coordinate)
     type: 'ocorrencias', dateOnly: true, category: i.categoria.charAt(0).toUpperCase() + i.categoria.slice(1), source: 'Backend Python · base acadêmica', verification: 'simulado',
     local: i.localidade || i.bairro, coordinate: fictionalCoordinate(i.id, center), start: `${i.data}T00:00:00-03:00`,
     status: i.status === 'concluída' ? 'encerrado' : i.status === 'em análise' ? 'andamento' : 'aberto',
-    verified: false, simulated: true, fictionalPosition: true, advertising: false, image: 'park',
+    verified: false, simulated: true, fictionalPosition: true, advertising: false, image: i.categoria === 'limpeza' ? 'cleanup' : i.categoria === 'conservação' ? 'maintenance' : i.categoria === 'acessibilidade' ? 'accessibility' : 'lighting',
   }));
 }
 export function discoveryStatus(item: DiscoveryItem) { return item.status === 'cancelado' ? 'Cancelado' : item.status === 'andamento' ? 'Em andamento' : item.status === 'encerrado' ? 'Encerrado' : 'Aberto / programado'; }

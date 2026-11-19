@@ -13,5 +13,5 @@ export function discoveryDemos(city: string, center: Coordinate): DiscoveryItem[
   ];
   return definitions.map((d, index) => ({ ...d, id: `demo:${city}:${index}`, local: `Local fictício · ${city}`, coordinate: fictionalCoordinate(`discovery-${index}`, center),
     start: '2026-11-18T00:00:00-03:00', end: '2026-11-30T23:59:59-03:00', status: 'andamento',
-    source: 'Demonstração CityWatch', verification: 'simulado', verified: false, simulated: true, fictionalPosition: true, advertising: ['promocoes', 'parceiros'].includes(d.type), image: d.type === 'promocoes' ? 'festival' : 'park' }));
+    source: 'Demonstração CityWatch', verification: 'simulado', verified: false, simulated: true, fictionalPosition: true, advertising: ['promocoes', 'parceiros'].includes(d.type), image: d.type === 'promocoes' ? 'market' : d.type === 'parceiros' ? 'coffee' : d.type === 'servicos' ? 'wellness' : d.category === 'Clima' ? 'rain' : d.type === 'alertas' ? 'maintenance' : d.type === 'noticias' ? 'planting' : 'neighbors' }));
 }

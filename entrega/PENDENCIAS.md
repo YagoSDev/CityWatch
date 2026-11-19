@@ -4,7 +4,7 @@
 - [x] Entrada `python src/sistema.py`, sem serviços, banco ou pacotes externos.
 - [x] Dados simulados, estruturas, operações e indicadores documentados.
 - [x] Declaração em `docs/uso_ia.md`.
-- [x] Repositório GitHub público publicado e acessível sem autenticação: https://github.com/YagoSDev/citywatch-fiap
+- [ ] Repositório público para avaliação: https://github.com/YagoSDev/citywatch-fiap — atualmente privado para revisão, a pedido do autor; aguarda nova autorização para tornar público.
 - [ ] Vídeo gravado pelo autor, publicado no YouTube como Não Listado e link fornecido.
 - [ ] Link do vídeo incluído no README e `.TXT` final gerado com apenas os dois links.
 - [ ] Autor revisar e justificar o código na apresentação.

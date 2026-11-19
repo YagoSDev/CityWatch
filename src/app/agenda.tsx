@@ -14,7 +14,7 @@ export default function AgendaScreen() {
   const c = useColors(); const router = useRouter(); const clock = useNow();
   const [month, setMonth] = useState(() => monthKey(clock)); const [day, setDay] = useState<string>();
   const [period, setPeriod] = useState<'hoje' | 'semana' | 'mes' | 'proximos'>('mes'); const [savedOnly, setSavedOnly] = useState(false);
-  const { entries, now, loading, error, storageError, reload, profile } = useAgenda(Number(month.slice(0, 4)));
+  const { entries, now, loading, error, storageError, reload, selectedCity } = useAgenda(Number(month.slice(0, 4)));
   const today = localDayKey(new Date(now)); const cells = monthCells(month);
   const base = entries.filter(e => !savedOnly || e.saved || e.added);
   const range: [number, number] = period === 'proximos' ? [dayRange(today)[0], Infinity] : period === 'mes' ? monthRange(month) : timeBounds(period, now);
@@ -40,7 +40,7 @@ export default function AgendaScreen() {
     {!!(error || storageError) && <><Notice error message={error || storageError} /><Action title="Atualizar agenda" secondary onPress={reload} /></>}
     {!loading && !results.length && <Text style={{ color: c.muted }}>Nenhum acontecimento {day ? 'nesta data' : 'neste período'}{savedOnly ? ' entre seus favoritos e eventos adicionados' : ''}. Experimente outra data ou abra a Comunidade.</Text>}
     {results.map(entry => <AgendaCard key={entry.id} entry={entry} />)}
-    <Notice message={`Feriados: base verificada de 2026. Nacionais, estaduais de SP/RJ e municipais cadastrados para São Paulo/Rio. ${Number(month.slice(0, 4)) !== 2026 ? 'Este ano ainda não possui base de feriados.' : ''} O calendário de ${profile.city} pode estar incompleto.`} />
+    <Notice message={`Feriados: base verificada de 2026. Nacionais e datas estaduais/municipais disponíveis para a cidade selecionada. ${Number(month.slice(0, 4)) !== 2026 ? 'Este ano ainda não possui base de feriados.' : ''} O calendário de ${selectedCity.name} pode estar incompleto.`} />
     <Text style={{ color: c.muted, fontSize: 12 }}>Favoritos entram automaticamente. Remover o favorito mantém o evento público; ele sai de Somente salvos, exceto se também estiver salvo na Agenda CityWatch. Nenhum compromisso pessoal do aparelho é lido.</Text>
     <Action title="Eventos da Comunidade" secondary onPress={() => router.navigate('/comunidade')} />
   </ScrollView></SafeAreaView>;

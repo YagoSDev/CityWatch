@@ -21,3 +21,11 @@ Use case: photorealistic-natural. Asset type: illustrative photo for a fictional
 ```text
 Use case: photorealistic-natural. Asset type: illustrative photo for a fictional pet adoption event in a mobile app. A friendly golden mixed-breed dog with expressive brown eyes sitting in a leafy park, candid portrait at dog eye level, warm afternoon daylight, richly green soft bokeh background, realistic detailed fur. No text, no logos, no watermark, no UI. One square image.
 ```
+
+## Variação temática — 19/11/2026
+
+Adicionadas 14 imagens ilustrativas por IA: `books.jpg`, `planting.jpg`, `art.jpg`, `donations.jpg`, `wellness.jpg`, `market.jpg`, `neighbors.jpg`, `photography.jpg`, `cleanup.jpg`, `coffee.jpg`, `rain.jpg`, `maintenance.jpg`, `lighting.jpg` e `accessibility.jpg`.
+
+Ferramenta integrada `imagegen`, modo geração de imagens novas. Prompts finais em `novas-imagens-prompts.json`. As saídas foram exportadas em JPEG com largura de 1100 px para uso no aplicativo, preservando os originais no diretório de imagens geradas. Não representam lugares específicos nem comprovam acontecimentos.
+
+Cada um dos 11 eventos do catálogo principal tem uma imagem própria. A lista da Comunidade exclui os eventos já apresentados nos destaques. A mesma imagem acompanha um mesmo evento nos seus detalhes e na Agenda, mantendo sua identidade. As ilustrações também foram distribuídas por tema nos cartões do mapa e nas quatro categorias acadêmicas, sem alterar a base Python.

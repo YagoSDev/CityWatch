@@ -2,8 +2,7 @@ import { createContext, useCallback, useContext, useState, type PropsWithChildre
 import { useNow } from './use-now';
 import { useEvents } from './events';
 import { useNearbyOccurrences } from './nearby-occurrences';
-import { findCity } from './city';
-import { useProfile } from './profile';
+import { useCurrentCity } from './current-city';
 import { defaultMapFilters, mapEvents, mapOccurrences, type MapFilters, type Coordinate } from './discovery-model';
 import { discoveryDemos } from './discovery-data';
 type Camera = Coordinate & { latitudeDelta: number; longitudeDelta: number };
@@ -17,14 +16,14 @@ export function DiscoveryProvider({ children }: PropsWithChildren) {
 export function useDiscovery() {
   const context = useContext(Context);
   if (!context) throw new Error('DiscoveryProvider não encontrado');
-  const { profile } = useProfile();
-  const city = findCity(profile.city, profile.state);
+  const selectedCity = useCurrentCity();
+  const city = selectedCity.city;
   const occurrences = useNearbyOccurrences();
   const events = useEvents();
   const now = useNow();
-  const items = [...mapEvents(events.events, profile.city, profile.state, city?.center, now),
+  const items = [...mapEvents(events.events, selectedCity.name, selectedCity.state, city?.center, now),
     ...(city ? [...mapOccurrences(occurrences.data, city.center), ...discoveryDemos(city.name, city.center)] : [])];
-  return { ...context, items, now, city, cityName: profile.city, loading: events.loading || occurrences.loading,
+  return { ...context, items, now, city, cityName: selectedCity.name, loading: events.loading || occurrences.loading,
     error: [events.error, occurrences.error].filter(Boolean).join('\n'),
     privateCount: occurrences.data.filter(i => i.origem === 'cidadao').length,
     retry: () => { occurrences.retry(); events.reload(); } };

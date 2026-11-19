@@ -1,26 +1,100 @@
-# Roteiro sugerido para o vídeo do autor
+# Roteiro do vídeo CityWatch — visão e demonstração acadêmica
 
-**Autor:** Yago Souza Araujo — RM 575200. O vídeo será gravado e publicado pelo autor como **Não Listado** no YouTube. O tempo abaixo é uma sugestão de organização (cerca de 5–7 minutos), não um limite encontrado no enunciado.
+**Autor:** Yago Souza Araujo — RM 575200. **Duração-alvo:** 4min50s, sujeita ao ensaio. Orientação informada pelo autor na live: aproximadamente 3–5 minutos. Os tempos incluem as telas, não devem ser somados a uma apresentação separada. Prepare cortes de digitação mantendo resultados legíveis.
 
-1. **Apresentação (30 s):** identifique autor/RM, CityWatch e o problema de registros dispersos em bairros fictícios. Explique que o núcleo é Python e que nenhum órgão público recebe solicitações nesta simulação.
-2. **Execução independente (30 s):** mostre `python src/sistema.py` ou `python3 src/sistema.py`. Explique carga CSV e modo em memória; não precisa ligar app, API, banco, Supabase ou internet.
-3. **Dados e inconsistência (40 s):** opção 8 mostra 12 válidas, nove pendências e 5,33 dias. Opção 10 mostra OC-013 rejeitada por descrição vazia. Abra os CSVs para mostrar quatro categorias e 10 eventos históricos.
-4. **Consulta/filtro (30 s):** opção 3, ID OC-007; opção 4, categoria limpeza e status em análise. Explique a expressão booleana documentada no README.
-5. **Cadastro (40 s):** opção 1; ID DEMO-014; iluminação; “Poste apagado próximo à praça fictícia”; Bairro Norte; 2026-10-20. Mostre o status inicial aberta e busque o novo ID na opção 3.
-6. **Status e histórico (40 s):** opção 5; DEMO-014; em análise; 2026-10-21; “Exame comunitário simulado”. Opção 6, DEMO-014. Explique LIFO e a atualização mais recente primeiro.
-7. **Erro tratado (20 s):** opção 5; DEMO-014; `resolvida`. O status desconhecido é rejeitado e o menu continua. Não diga que isso foi uma falha inesperada: é uma validação deliberada.
-8. **Estruturas (60 s):** mostre `backend/estruturas.py`. Lista percorre ocorrências; dicionário busca por ID; fila ordena não examinadas; pilha lê últimas alterações; hierarquia agrupa bairro/categoria; matriz cruza categoria/status. Opção 7 mostra fila e responda N para não alterar; opção 9 exibe hierarquia.
-9. **Indicadores e conclusão (40 s):** opção 8 após o cadastro mostra 13 válidas. Explique a diferença da base inicial. A média de três conclusões simuladas continua 5,33 dias. Mostre fórmula e limitação da amostra.
-10. **Fechamento:** explique acessibilidade textual, privacidade, declaração de IA e responsabilidade de compreender o código. O aplicativo pode aparecer brevemente como extensão, sem substituir a demonstração dos requisitos Python. Termine com opção 0.
+Base conceitual: [visão do produto](visao-do-produto.md). A narração abaixo usa “proposta” e “evolução” nos recursos ainda não operacionais. Não dizer que widgets, notificações em tempo real ou encaminhamento à prefeitura já funcionam.
 
-## Reprodução e evidências
+## 0:00–0:40 — Ideia e contexto
+
+**Tela:** Home do app e identificação do autor/RM.
+
+**Fala sugerida:**
+
+“Olá, sou Yago Souza Araujo, RM 575200. Este é o CityWatch, uma proposta para aproximar as pessoas das informações da sua cidade por meio da própria comunidade. Imagine encontrar uma árvore caída no caminho: registrar a situação pode ajudar outras pessoas a conhecer o problema. A ideia reúne informação urbana, participação comunitária e transparência. Para a Global Solution, implementei um núcleo Python que organiza ocorrências e permite acompanhar seu andamento. O aplicativo React Native se conecta a esse núcleo por uma API FastAPI.”
+
+## 0:40–1:10 — Dados e execução independente
+
+**Tela:** Os dois CSVs; comando `python3 src/sistema.py`; opções 8 e 10. Guardar o trecho do relatório inicial para a explicação dos indicadores.
+
+**Fala sugerida:**
+
+“O núcleo funciona pelo terminal, sem internet ou serviços externos. Estes CSVs contêm doze ocorrências válidas de iluminação, acessibilidade, limpeza e conservação, com três status, e dez eventos históricos. Os locais e as datas são simulados. Acrescentei um registro com descrição vazia: o sistema rejeita essa linha e informa a inconsistência sem interromper a leitura dos dados válidos.”
+
+## 1:10–2:10 — Operações e erros tratados
+
+**Tela:** Opções 2 e 3: listar e buscar OC-007; opção 4: limpeza/em análise. Cadastrar DEMO-014; tentar repetir o ID e usar descrição vazia em outro cadastro; atualizar DEMO-014 para em análise e depois concluída; consultar histórico; rejeitar status `resolvida`. Mostrar cortes da execução real, não saídas fabricadas.
+
+**Fala sugerida:**
+
+“Aqui listo as ocorrências, busco pelo identificador e combino filtros de categoria e status. Agora cadastro uma demanda fictícia e acompanho suas atualizações. O histórico preserva cada alteração. Identificadores duplicados, campos obrigatórios vazios e status desconhecidos produzem mensagens de erro e não são gravados. No produto, esse acompanhamento serve de base para dar visibilidade às demandas. Encaminhamento oficial e respostas de uma prefeitura dependem de uma integração institucional futura.”
+
+## 2:10–3:00 — Estruturas e lógica
+
+**Tela:** `backend/estruturas.py`, opções 7 e 9, histórico e matriz. Mostrar fila antes/depois de examinar a primeira demanda; histórico das duas atualizações. Destacar condição booleana e ramificações de atualização.
+
+**Fala sugerida:**
+
+“A lista armazena os registros e o dicionário permite buscar por ID. A fila FIFO examina primeiro a demanda mais antiga, enquanto a pilha LIFO apresenta a atualização mais recente primeiro. A hierarquia organiza bairro, categoria e ocorrências. A matriz cruza as quatro categorias com os três status e alimenta os indicadores. Uso IF, ELIF e ELSE para decidir entre erro ou atualização. NOT e OR detectam campos vazios; AND e OR combinam os filtros; NOT também trata a fila vazia.”
+
+## 3:00–3:40 — Indicadores e interpretação
+
+**Tela:** Trecho do relatório da base inicial, antes das alterações, com contagens, percentuais, matriz, origens e fórmulas. Não misturar valores iniciais com a sessão já modificada.
+
+**Fala sugerida:**
+
+“Na carga inicial, são doze ocorrências: três por categoria, ou vinte e cinco por cento cada. Há cinco abertas, quatro em análise e três concluídas: quarenta e um vírgula sessenta e sete, trinta e três vírgula trinta e três e vinte e cinco por cento. Somando abertas e em análise, são nove pendências, setenta e cinco por cento. A média de conclusão é quatro mais seis mais seis dias, dividido por três: cinco vírgula trinta e três dias. Esses números descrevem a amostra fictícia, não o desempenho real de uma cidade.”
+
+## 3:40–4:20 — Proposta do produto e modelo de negócio
+
+**Tela:** Home, mapa, agenda, Comunidade e demonstração de parceiros/recompensas, com dados simulados identificados. Não apresentar um estabelecimento como parceiro contratado sem confirmação.
+
+**Fala sugerida:**
+
+“Como produto, o CityWatch conecta moradores, comércio local e, futuramente, equipes municipais. O cidadão encontra informação e participação; o estabelecimento ganha uma oportunidade de alcançar pessoas da região. Queremos manter o acesso gratuito e gerar receita com planos de divulgação, campanhas e eventos patrocinados, sempre identificados. É um modelo a validar: ainda não há preços ou faturamento comprovados. A receita precisa sustentar operação, manutenção e moderação, sem vender prioridade em alertas. Também planejamos widgets e orientação de rotas em desastres, com informações verificadas e orientações oficiais.”
+
+## 4:20–4:50 — Evidências e conclusão
+
+**Tela:** README, `docs/uso_ia.md`, resultados registrados e matriz de conformidade. Exibir resultados reais existentes ou executar as verificações antes da gravação.
+
+**Fala sugerida:**
+
+“O README reúne execução, regras, estruturas e fórmulas. A última verificação registrou noventa e quatro testes aprovados, além de TypeScript e lint. A assistência de IA está documentada. O núcleo funciona sem smartphone e usa dados genéricos, sem endereços residenciais. O resultado é uma base funcional para organizar ocorrências, com uma proposta de evolução comunitária e comercial. Os recursos futuros permanecem identificados como planejamento.”
+
+**Nota ao autor:** só declarar revisão pessoal ou aprendizado específico que você efetivamente realizou e consegue explicar. Ensaiar e ajustar a velocidade; se ultrapassar cinco minutos, reduzir exemplos e repetições, mantendo uma explicação breve da proposta e do modelo de negócio e preservando as evidências acadêmicas.
+
+## Dados para a demonstração
+
+Em uma sessão em memória, cadastre:
+
+- ID: `DEMO-014`.
+- Categoria: `iluminação`.
+- Descrição: `Poste apagado próximo à praça fictícia`.
+- Bairro: `Bairro Norte`.
+- Data simulada: `2026-10-20`.
+- Atualização: `em análise`, data `2026-10-21`, observação `Exame comunitário simulado`.
+- Segunda atualização para demonstrar LIFO: `concluída`, data `2026-10-22`, observação `Conclusão simulada`.
+- Status inválido: `resolvida` — deve ser rejeitado.
+
+Para a descrição obrigatória, tente um cadastro separado com descrição vazia. Para duplicidade, tente cadastrar `DEMO-014` novamente. Não conte essas tentativas rejeitadas como ocorrências válidas. Na fila, examine a primeira demanda apenas na sessão demonstrativa; alterações em memória não modificam os CSVs.
+
+## Preparação e ensaio
+
+1. Abrir os arquivos e o menu antes da gravação; ampliar a fonte e ocultar credenciais e notificações pessoais.
+2. Ensaiar as operações, inclusive a remoção FIFO e as duas atualizações para LIFO. Reabrir o menu sem `--estado` para recuperar a base original.
+3. Conferir cada linha da matriz de conformidade. O vídeo deve mostrar evidências e explicar as estruturas, a lógica e os indicadores; só passear pelo app não demonstra esses requisitos.
+4. Cronometrar o ensaio. Usar cortes de tempo de digitação, mantendo entradas, resultados e explicações legíveis. Não afirmar que um resultado foi verificado se não foi executado.
+5. Não demonstrar recurso mobile como operacional se depender de permissões, API ou hardware ainda não conferidos.
+
+Uma execução reproduzível adicional está disponível em:
 
 ```sh
 python3 scripts/demonstracao_academica.py
 ```
 
-O script executa o menu de verdade com entradas fictícias, verifica respostas esperadas e salva `docs/evidencias/menu-demonstracao.txt`. Não é um vídeo nem simula uma gravação humana. Reproduza as etapas para preparar sua apresentação e confirme a compreensão pessoal das regras.
+Esse script executa o menu real e salva `docs/evidencias/menu-demonstracao.txt`. Ele não cobre sozinho todos os passos ampliados deste roteiro, não grava o vídeo e não substitui a explicação do autor.
 
 ## Publicação e TXT
 
-No YouTube, escolha **Não Listado**, copie o link e teste em uma janela sem login. Depois forneça o link para completar o README e gerar o TXT com o repositório público e o vídeo. Não enviar uma transcrição ou um placeholder no lugar desses dois links.
+O repositório está **privado para revisão**, por decisão do autor. Não alterar essa visibilidade sem nova autorização. Antes da entrega que exige acesso público, o autor precisa autorizar a publicação.
+
+Publicar o vídeo como **Não Listado**, verificar o link sem login e fornecê-lo para atualizar o README e gerar o TXT contendo somente os dois links reais. Conferir reprodução, visibilidade do GitHub e envio na FIAP. Nenhum envio foi realizado automaticamente.

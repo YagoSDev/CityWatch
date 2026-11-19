@@ -20,10 +20,22 @@ Não confirmam a compreensão humana do autor, publicação no GitHub/YouTube ou
 
 O pacote contém o código Expo e sua configuração; a pasta nativa iOS gerada e os artefatos de compilação ficam fora da exportação. O projeto iOS existente foi preservado localmente.
 
-## Publicação verificada
+## Publicação inicial verificada — 18/11/2026 (histórico)
 
 - Repositório: https://github.com/YagoSDev/citywatch-fiap
 - A consulta HTTPS sem credenciais retornou `private: false`.
 - Um clone novo com o gerenciador de credenciais desativado foi concluído com sucesso.
 - Executado `python3 -S .../src/sistema.py` a partir de `/tmp`, com as opções 8 e 0: 12 registros válidos, 10 eventos, um aviso e média de 5,33 dias, sem erro.
 - A publicação usa uma cópia revisada dos arquivos, sem enviar o histórico Git local ou alterar o repositório de trabalho existente.
+
+
+## V2 — atualização de 19/11/2026
+
+- `.venv/bin/python -m unittest discover -s backend/tests`: **38 aprovados**.
+- `node --experimental-strip-types --test tests/*.test.ts`: **74 aprovados**.
+- Total atual: **112 testes aprovados**, sem falhas; `npm run typecheck` e `npm run lint` aprovados.
+- Verificações em simulador: abertura e cartões do P.I.T., sessões e contadores, indisponibilidade honesta de passos, Cosmópolis por GPS simulado, fotografia/avatares, Comunidade e favorito refletido na Agenda. Consulte os guias V2 para evidências e limites.
+- Passos no iPhone: funcionamento relatado pelo autor; não é medição feita pelo assistente. Arraste lateral e permissões/sensores em outros aparelhos ainda exigem teste físico.
+- Situação atual do GitHub: **privado para revisão por decisão do autor**. A verificação pública acima é histórica e não significa que o avaliador tenha acesso agora. Torná-lo público depende de autorização posterior.
+
+A V2 é uma atualização do mesmo projeto; não removeu as operações acadêmicas ou substituiu a base simulada.

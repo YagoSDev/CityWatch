@@ -2,11 +2,13 @@ import { usePathname } from 'expo-router';
 import { AppState } from 'react-native';
 import { startForegroundWatch } from './foreground-watch';
 import * as Location from 'expo-location';
-import { createContext, type PropsWithChildren, useContext, useEffect, useRef, useState } from 'react';
+import { createMunicipalityResolver, type Municipality } from './municipality';
+import { createContext, useCallback, type PropsWithChildren, useContext, useEffect, useRef, useState } from 'react';
 import type { LatLng } from 'react-native-maps';
 
 type LocationState = {
   coordinate: LatLng | null;
+  municipality: Municipality | null;
   locating: boolean;
   message: string | null;
   needsSettings: boolean;
@@ -31,6 +33,17 @@ async function readPosition(): Promise<Location.LocationObject> {
 
 export function ForegroundLocationProvider({ children }: PropsWithChildren) {
   const [coordinate, setCoordinate] = useState<LatLng | null>(null);
+  const [municipality, setMunicipality] = useState<Municipality | null>(null);
+  const [resolveMunicipality] = useState(() => createMunicipalityResolver(Location.reverseGeocodeAsync));
+  const cityRevision = useRef(0);
+  const resolveCity = useCallback((position: LatLng) => {
+    const revision = ++cityRevision.current;
+    void resolveMunicipality(position).then(city => { if (cityRevision.current === revision) setMunicipality(city); });
+  }, [resolveMunicipality]);
+  const clearPosition = useCallback(() => {
+    cityRevision.current++; setCoordinate(null); setMunicipality(null);
+  }, []);
+  useEffect(() => () => { cityRevision.current++; }, []);
   const [locating, setLocating] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [needsSettings, setNeedsSettings] = useState(false);
@@ -47,10 +60,11 @@ export function ForegroundLocationProvider({ children }: PropsWithChildren) {
       watch: (receive, failure) => Location.watchPositionAsync({ accuracy: Location.Accuracy.Balanced, distanceInterval: 20, timeInterval: 10000 }, receive, failure),
     }, ({ coords }) => {
       if (Number.isFinite(coords.latitude) && Number.isFinite(coords.longitude)) {
-        setCoordinate({ latitude: coords.latitude, longitude: coords.longitude }); setMessage(null);
+        const point = { latitude: coords.latitude, longitude: coords.longitude };
+        setCoordinate(point); resolveCity(point); setMessage(null);
       }
-    }, reason => { setCoordinate(null); setMessage(reason); });
-  }, [path, appState, permissionRevision]);
+    }, reason => { clearPosition(); setMessage(reason); });
+  }, [path, appState, permissionRevision, resolveCity, clearPosition]);
 
   async function locate() {
     if (requestInProgress.current) return null;
@@ -62,25 +76,25 @@ export function ForegroundLocationProvider({ children }: PropsWithChildren) {
     try {
       const permission = await Location.requestForegroundPermissionsAsync();
       if (!permission.granted) {
-        setCoordinate(null);
+        clearPosition();
         setNeedsSettings(!permission.canAskAgain);
         setMessage('Permita o acesso à localização para centralizar o mapa.');
         return null;
       }
       if (!(await Location.hasServicesEnabledAsync())) {
-        setCoordinate(null);
+        clearPosition();
         setMessage('Ative os Serviços de Localização do dispositivo e tente novamente.');
         return null;
       }
 
       const { coords } = await readPosition();
       const position = { latitude: coords.latitude, longitude: coords.longitude };
-      setCoordinate(position);
+      setCoordinate(position); resolveCity(position);
       setPermissionRevision(v => v + 1);
       setMessage('Mapa centralizado na sua localização.');
       return position;
     } catch {
-      setCoordinate(null);
+      clearPosition();
       setMessage('Localização indisponível. Tente novamente.');
       return null;
     } finally {
@@ -90,7 +104,7 @@ export function ForegroundLocationProvider({ children }: PropsWithChildren) {
   }
 
   return (
-    <ForegroundLocationContext.Provider value={{ coordinate, locating, message, needsSettings, locate }}>
+    <ForegroundLocationContext.Provider value={{ coordinate, municipality, locating, message, needsSettings, locate }}>
       {children}
     </ForegroundLocationContext.Provider>
   );
