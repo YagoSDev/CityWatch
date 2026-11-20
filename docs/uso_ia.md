@@ -4,14 +4,13 @@
 
 ## Assistência utilizada
 
-O ChatGPT/Codex ajudou a discutir a proposta, implementar código em Python e React Native/TypeScript e criar testes para operações como cadastro, busca, atualização de status e cálculo de indicadores. Também ajudou a revisar a documentação e a preparar os dados simulados.
+O ChatGPT/Codex ajudou a discutir a proposta, implementar código em React Native e criar testes como cadastro, atualização de status e cálculo de indicadores. Também ajudou a revisar a documentação e a preparar os dados simulados.
 
 A ferramenta integrada de geração de imagens produziu ilustrações de eventos e uma prévia conceitual da Home. A preparação do mascote também teve apoio de IA a partir de materiais fornecidos pelo autor. Os inventários e prompts disponíveis estão em [imagens de eventos](../assets/events/README.md) e [mascote](../assets/mascot/animations/README.md). As imagens de eventos são ilustrativas, sem comprovação de acontecimentos reais. Os GIFs solicitados e ainda ausentes não são apresentados como gerados.
 
 ## Verificação dos resultados
 
 - Requisitos comparados com a atividade no FIAP ON e com o modelo público da coordenação.
-- Código Python validado por testes de cadastro válido/inválido, ID duplicado, consulta, filtros, status, histórico, fila FIFO, pilha LIFO, hierarquia, matriz, indicadores, datas e registro inconsistente.
 - Entrada acadêmica executada com biblioteca padrão, sem carregar SQLite, FastAPI ou Supabase.
 - Amostra inicial conferida: 12 ocorrências válidas, 10 eventos históricos, um registro rejeitado, nove pendências e média de conclusão de 5,33 dias.
 - Aplicativo adicional submetido a TypeScript, lint, testes de domínio e inspeção de navegação em simulador iOS. Isso não certifica GPS físico, permissões em todos os aparelhos ou serviços demonstrativos como reais.
