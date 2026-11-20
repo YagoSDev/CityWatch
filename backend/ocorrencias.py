@@ -1,5 +1,5 @@
 from dataclasses import asdict, replace
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .dados_iniciais import PASTA_DADOS
@@ -90,7 +90,10 @@ class ServicoOcorrencias:
 
     def registrar_status(self, dados: dict, estruturas: Estruturas, item: Ocorrencia,
                          status: str, data: str | None, observacao: str) -> Ocorrencia:
-        momento = validar_data(date.today().isoformat() if data is None else data)
+        if data is None:
+            dia = datetime.now(timezone.utc).date() if item.origem == "cidadao" else date.today()
+            data = dia.isoformat()
+        momento = validar_data(data)
         ultima_data = next((evento.data for evento in reversed(estruturas.pilha)
                             if evento.ocorrencia_id == item.id), item.data)
         if momento < ultima_data:

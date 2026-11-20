@@ -1,10 +1,11 @@
 import base64
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 from backend.api import criar_app
@@ -20,6 +21,11 @@ class TestRelatos(unittest.TestCase):
                       "localidade": "Entrada da praça fictícia", "bairro": "Bairro Teste", "etiquetas": ["clima_alagamento"]}
 
     def test_publicacao_confirmada_utc_e_integracao_estruturas(self):
+        # Em São Paulo ainda é 19/11 quando a publicação em UTC já é de 20/11.
+        agora_utc = datetime(2026, 11, 20, 1, 30, tzinfo=timezone.utc)
+        self.enterContext(patch('backend.relatos.datetime', wraps=datetime)).now.return_value = agora_utc
+        self.enterContext(patch('backend.ocorrencias.datetime', wraps=datetime)).now.return_value = agora_utc
+        self.enterContext(patch('backend.ocorrencias.date', wraps=date)).today.return_value = date(2026, 11, 19)
         result = self.client.post('/relatos', json=self.draft)
         self.assertEqual(result.status_code, 201, result.text)
         item = result.json()
@@ -35,8 +41,10 @@ class TestRelatos(unittest.TestCase):
         self.assertEqual(self.client.get('/indicadores').json()['total'], 13)
         self.assertEqual(self.client.get('/bairros').json()['Bairro Teste']['conservação'][0]['id'], item['id'])
         changed = self.client.patch('/ocorrencias/' + item['id'] + '/status', json={'status': 'em análise'})
-        self.assertEqual(changed.status_code, 200)
-        self.assertEqual(self.client.get('/historico').json()[0]['ocorrencia_id'], item['id'])
+        self.assertEqual(changed.status_code, 200, changed.text)
+        evento = self.client.get('/historico').json()[0]
+        self.assertEqual(evento['ocorrencia_id'], item['id'])
+        self.assertEqual(evento['data'], '2026-11-20')
         self.assertEqual(len(self.client.get('/validacao').json()), 1)
 
     def test_retry_e_concorrencia_nao_duplicam(self):
