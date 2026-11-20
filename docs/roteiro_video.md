@@ -49,5 +49,5 @@ Há uma demonstração parcial reproduzível em `python3 scripts/demonstracao_ac
 - [ ] Conferir a edição local contra o roteiro. Se precisar comprovar execução pelo terminal na tela, inserir os trechos reais correspondentes.
 - [ ] Conferir que as telas e comandos não contêm credenciais, contas pessoais ou localização residencial.
 - [x] URL do vídeo recebido e título confirmado. [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI).
-- [ ] Conferir no YouTube Studio a visibilidade **Não Listado**.
+- [x] Visibilidade do vídeo confirmada pelo autor.
 - [x] Atualizar o README local e preparar o TXT de dois links. [Situação da entrega](../entrega/PENDENCIAS.md).

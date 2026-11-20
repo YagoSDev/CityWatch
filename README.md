@@ -265,9 +265,13 @@ Somente códigos e localidades genéricas aparecem nos CSVs. O modo acadêmico n
 
 A assistência de IA em planejamento, código, dados, documentação e imagens está declarada em [docs/uso_ia.md](docs/uso_ia.md), com distinção entre testes executados e validação humana ainda necessária. O autor deve compreender e justificar as escolhas apresentadas.
 
-O protótipo mostra como relatos podem ser transformados em registros consultáveis, prioridades de exame e indicadores simples. O desenvolvimento evidencia a aplicação prática de FIFO/LIFO, índices por ID, cruzamento de categorias/status e validações booleanas. Os aprendizados pessoais do autor devem ser confirmados por ele antes da apresentação; não presumimos domínio humano apenas por testes aprovados.
+O protótipo mostra como relatos podem ser transformados em registros consultáveis, prioridades de exame e indicadores simples. O desenvolvimento evidencia a aplicação prática de FIFO/LIFO, índices por ID, cruzamento de categorias/status e validações booleanas.
 
 Limites: dados fictícios, ausência de atendimento público real, indicador temporal com três conclusões, JSON local sem uso multiprocesso, funcionalidades mobile extras fora do escopo básico e calendário/eventos demonstrativos claramente identificados.
+
+### Aprendizados do desenvolvimento
+
+Ao implementar a triagem e o histórico, ficou claro que cada estrutura resolve um problema de ordem diferente: a fila atende primeiro a demanda mais antiga, enquanto a pilha traz a atualização mais recente para o topo da consulta. O caso OC-013 mostrou por que a validação precisa acontecer antes do cálculo: rejeitar a descrição vazia mantém o registro inconsistente fora dos totais e preserva a carga válida. Rodar o mesmo serviço Python pelo terminal e pela API mostrou como separar regras de negócio da interface facilita testar o cadastro, a busca e as mudanças de status em ambos os fluxos.
 
 ## Equipe e identificação
 
@@ -289,6 +293,6 @@ A atividade aberta no FIAP ON informa entrega na Fase 4, até **19/11/2026 às 2
 - Vídeo de apresentação: [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI).
 - Competição: a confirmar; não foi escolhida automaticamente.
 
-O TXT local está pronto com as duas URLs. Confira o acesso público ao repositório e a visibilidade do vídeo antes do envio. [Situação da entrega](entrega/PENDENCIAS.md).
+O acesso público ao repositório foi confirmado sem login. O [TXT da entrega](entrega/CityWatch-FIAP.txt) contém as duas URLs exigidas. [Situação da entrega](entrega/PENDENCIAS.md).
 
 A referência de estrutura da FIAP possui atribuição CC BY 4.0; consulte [atribuição do modelo](docs/atribuicao_modelo.md). Nenhuma licença para código ou imagens de terceiros foi presumida.

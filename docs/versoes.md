@@ -49,4 +49,4 @@ Detalhes e evidências: [cidade e imagens](cidade-e-imagens.md), [P.I.T. na inte
 - Rotas em situações de desastre com fontes oficiais verificadas, sem garantia de trajeto seguro.
 - Animações fiéis do P.I.T., testes físicos ampliados e distribuição assinada do aplicativo.
 
-A edição local do vídeo V3.1 está concluída. O vídeo está disponível no YouTube. A conferência da visibilidade Não Listado, a abertura pública do repositório e o envio à FIAP são etapas de entrega pendentes. [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI).
+A edição local do vídeo V3.1 está concluída. O vídeo está disponível no YouTube. A visibilidade do vídeo foi confirmada pelo autor e o GitHub foi aberto para avaliação. O envio à FIAP fica a cargo do autor. [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI).

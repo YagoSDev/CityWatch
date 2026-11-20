@@ -28,9 +28,9 @@ Referência: atividade lida no FIAP ON em 18/11/2026: https://on.fiap.com.br/mod
 | Contexto e público | README | Atendido |
 | Acessibilidade, inclusão e privacidade | README e limites documentados | Atendido, sem alegar certificação universal |
 | Declaração de IA | `docs/uso_ia.md`, assistência em código descrita honestamente | Atendido |
-| GitHub público acessível | Repositório criado e verificado anteriormente; tornado privado a pedido do autor para revisão | Pendente de nova autorização para tornar público |
-| Vídeo Não Listado e link no README | [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI); link incluído no README local | Confirmar Não Listado no YouTube Studio |
-| TXT somente com dois links | Arquivo local gerado e conferido | Pronto para envio após validar a acessibilidade dos links |
+| GitHub público acessível | Clone sem credenciais com a revisão da entrega | Atendido |
+| Vídeo Não Listado e link no README | [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI); link incluído no README público, visibilidade confirmada pelo autor | Atendido |
+| TXT somente com dois links | Arquivo local gerado e conferido | Pronto para envio pelo autor |
 | Envio FIAP ON | Nenhum upload/submissão realizado | Pendente |
 | Decisão de competição | Modelo pede decisão; enunciado não detalha | A confirmar pelo autor |
 | Tutor/turma e edição | Não inventados; divergência de semestre na página | A confirmar se necessário |
