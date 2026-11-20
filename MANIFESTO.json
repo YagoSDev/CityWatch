@@ -1,9 +1,9 @@
 {
   ".env.example": "a908a65b07b8f64fe29279f605bdd4d0604ff29742f76df8fd24308bbd422888",
   ".gitignore": "b13e53a59989db824f92dcc739a94c89bc7797b315789bf7eeeb6818f4c57508",
-  "README.md": "bd3d18854c8a30f28f0b6d4babd53bf556fbf378459ce0c49652f33839d9c2e9",
+  "README.md": "40fc01c1eb2cc00c1f1e20ff1eff0c5b50b09eb3092918f1d36a4e85c6a3a364",
   "app.json": "d5401b360566c7c104d3e3ce31bb67281c8720f3de5dd89df4d0ba4bd6b69300",
-  "entrega/PENDENCIAS.md": "1d71c4ac0f232ba6808e7583421fe93077d2e7ddbcfd24186b0b3cf70fa2af2d",
+  "entrega/PENDENCIAS.md": "0c9595c56aad678945732db9c57472adabb9cc6bef81ececcbf13d1cfaa3a8d5",
   "eslint.config.js": "70c216ea657c8a2dda710ad680bf21634a09f7a286bd259c210f2808ace88c36",
   "package-lock.json": "7cad97bd263d59ba04213cfeb67af1f22199483670ad4e0c2ca6d662f5d21a7e",
   "package.json": "206b49424b99b0f558ce2f8b046928ef1d5b3435679a4acccaa76738a0ea7d4d",
@@ -66,7 +66,7 @@
   "data/ocorrencias.csv": "09a90504c74e8b0d0b7289128184a24ea8f8e7dc241cb1032404a373c9f6b12a",
   "data/README.md": "dd9f51cd85c877aef7ca8f931b68b43b7a0670f8095a0c9afc9f3cd17b6268c1",
   "data/historico.csv": "42b761377c561d421033839f32a31c944be9779e999cc559e5d4acafe597ae4c",
-  "docs/validacao_entrega.md": "bd7611c796cd90d4c83533f63a84b237d094e5e20759157490fb3f286c8cf933",
+  "docs/validacao_entrega.md": "c7d831c51db76609b26243c3407abbe53bd859ef71e231bac8c32bbd042d8a04",
   "docs/home-compacta.md": "67d4106ba21adfd9194b686657e4cb2b865b3033b6a87063d6070e4f09418e88",
   "docs/relatorio-demonstracao-v3-1.md": "57453c3ea21ddf3969990c0c6906079f6c3c27cfe5a71021b5e6bfb50ef48375",
   "docs/pit-atividades.md": "74ea85ce80095342f6ce935c9882c34d25cd252ef797d96e5a141ad3eab4be5c",
@@ -256,5 +256,6 @@
   "tests/agenda-calendar.test.ts": "4b4c692617b0d955536a32cd5271937d1b435a9357b7bad95d387882e025d260",
   "tests/municipality.test.ts": "c0ed1ec934eba1a5465dd26ee0dfe20de27e0458854fdb594cb0661e76d11295",
   "tests/api-connection.test.ts": "9cc0f958ae732cae18ed12973c979270a8c10ffdf9b904920fccb99d3f42434a",
-  "entrega/CityWatch-FIAP.txt": "42bf89f4407607c34f5688fbd7c5f1542a60af50d2394a49b11c1ac0cb8b5102"
+  "entrega/CityWatch-FIAP.txt": "1eeeed47427757bdd71048bbca330ab880381df53de60ce3740ca4cc8245ae65",
+  "assets/brand/citywatch-capa.jpg": "6027a404fac731dc337412b2863da9cd982de55ab8deeb29181656c789eaa3ec"
 }

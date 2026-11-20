@@ -22,7 +22,7 @@ O pacote contém o código Expo e sua configuração; a pasta nativa iOS gerada 
 
 ## Publicação inicial verificada — 18/11/2026 (histórico)
 
-- Repositório: https://github.com/YagoSDev/citywatch-fiap
+- Repositório: https://github.com/YagoSDev/CityWatch
 - A consulta HTTPS sem credenciais retornou `private: false`.
 - Um clone novo com o gerenciador de credenciais desativado foi concluído com sucesso.
 - Executado `python3 -S .../src/sistema.py` a partir de `/tmp`, com as opções 8 e 0: 12 registros válidos, 10 eventos, um aviso e média de 5,33 dias, sem erro.
@@ -57,6 +57,6 @@ Ambiente local: Python 3.13.12, Node.js 24.19.0 e iPhone 18 Pro simulado com iOS
 
 O menu preservou a amostra inicial dos CSVs: 12 válidas, 10 eventos, OC-013 rejeitada, 9 pendentes e média de 5,33 dias. Os exemplos são fictícios. A revisão abriu a build já instalada no simulador e capturou o mapa e o cadastro. As demais evidências vêm de gravações anteriores do app. Esta rodada não avaliou Android, ditado e sensores em dispositivo físico, entrega de e-mail ou atendimento municipal. [Origem das capturas](evidencias/CAPTURA.md).
 
-Após a autorização do autor, o [repositório](https://github.com/YagoSDev/citywatch-fiap) foi atualizado e tornado público. Um clone sem credenciais confirmou a integridade dos arquivos pelo manifesto, e o núcleo Python executou com `python3 -S`. O título do vídeo foi confirmado por oEmbed e a visibilidade foi confirmada pelo autor. [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI). O TXT contém as duas URLs. O envio à FIAP fica a cargo do autor. [Situação da entrega](../entrega/PENDENCIAS.md).
+Após a autorização do autor, o [repositório](https://github.com/YagoSDev/CityWatch) foi atualizado e tornado público. Um clone sem credenciais confirmou a integridade dos arquivos pelo manifesto, e o núcleo Python executou com `python3 -S`. O título do vídeo foi confirmado por oEmbed e a visibilidade foi confirmada pelo autor. [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI). O TXT contém as duas URLs. O envio à FIAP fica a cargo do autor. [Situação da entrega](../entrega/PENDENCIAS.md).
 
 A revisão de preparação também verificou o parser Mermaid para os dois fluxogramas e os links relativos dos documentos. A renderização final na página do GitHub depende da versão enviada ao repositório. Confira o pacote de revisão pelo script `scripts/preparar_entrega.py`, que usa uma lista de arquivos permitidos. A revisão procurou padrões comuns de credenciais nos arquivos candidatos e conferiu a exclusão de arquivos de configuração privados, bancos e gravações pessoais. Essa checagem se aplica ao workspace atual e ao pacote, sem inspeção do histórico remoto privado.

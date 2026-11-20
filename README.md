@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/brand/pit-app-icon.png" width="96" alt="Ícone CityWatch com o mascote P.I.T."></p>
+![CityWatch — tela inicial e mapa do app](assets/brand/citywatch-capa.jpg)
 
 # CityWatch
 
@@ -284,7 +284,7 @@ A atividade aberta no FIAP ON informa entrega na Fase 4, até **19/11/2026 às 2
 
 ## Links e entrega
 
-- Repositório do projeto: [YagoSDev/citywatch-fiap](https://github.com/YagoSDev/citywatch-fiap), com o código, a documentação e as evidências da entrega.
+- Repositório do projeto: [YagoSDev/CityWatch](https://github.com/YagoSDev/CityWatch), com o código, a documentação e as evidências da entrega.
 - Vídeo de apresentação: [CityWatch no YouTube](https://www.youtube.com/watch?v=shDn8X4PDFI).
 - Competição: a confirmar; não foi escolhida automaticamente.
 
