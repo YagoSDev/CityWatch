@@ -4,7 +4,7 @@
 
 ## Assistência utilizada
 
-Foi utilizada a assistência do ChatGPT/Codex para discutir a proposta, interpretar os requisitos, sugerir e implementar trechos substanciais de código Python e React Native/TypeScript, organizar arquivos, elaborar testes, revisar documentação e gerar dados fictícios. A assistência não se limitou à correção ortográfica ou esclarecimento de conceitos.
+O ChatGPT/Codex ajudou a discutir a proposta, implementar código em Python e React Native/TypeScript e criar testes para operações como cadastro, busca, atualização de status e cálculo de indicadores. Também ajudou a revisar a documentação e a preparar os dados simulados.
 
 A ferramenta integrada de geração de imagens produziu ilustrações de eventos e uma prévia conceitual da Home. A preparação do mascote também teve apoio de IA a partir de materiais fornecidos pelo autor. Os inventários e prompts disponíveis estão em [imagens de eventos](../assets/events/README.md) e [mascote](../assets/mascot/animations/README.md). As imagens de eventos são ilustrativas, sem comprovação de acontecimentos reais. Os GIFs solicitados e ainda ausentes não são apresentados como gerados.
 
