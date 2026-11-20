@@ -8,7 +8,7 @@ CityWatch ajuda moradores a registrar problemas urbanos, consultar ocorrências 
 
 O projeto foi desenvolvido para a **Global Solution FIAP**. O núcleo Python funciona no terminal e organiza ocorrências fictícias com estruturas de dados e indicadores. O aplicativo React Native/Expo amplia a experiência com mapa, agenda e participação comunitária.
 
-[Capturas](#telas-do-aplicativo) · [Demonstrações](#demonstrações) · [Diagramas](#fluxo-e-arquitetura) · [Execução](#executar-a-versão-acadêmica) · [Validação](#testes-e-evidências) · [Entrega](#links-e-entrega)
+[Projeto e próximos passos](docs/visao-do-produto.md) · [Capturas](#telas-do-aplicativo) · [Demonstrações](#demonstrações) · [Diagramas](#fluxo-e-arquitetura) · [Execução](#executar-a-versão-acadêmica) · [Validação](#testes-e-evidências) · [Entrega](#links-e-entrega)
 
 ## Telas do aplicativo
 
@@ -246,14 +246,9 @@ python3 scripts/demonstracao_academica.py
 [Resultados, comparação com a V1 e limites](docs/validacao_entrega.md) · [Roteiro de apresentação](docs/roteiro_video.md)
 
 
-## Proposta de negócio
+## Projeto e próximos passos
 
-O plano é manter o acesso essencial gratuito para cidadãos e validar receitas com divulgação de parceiros, espaços patrocinados identificados e campanhas ou eventos locais. Parcerias também podem apoiar ações solidárias e feiras de adoção. Não há receita ou parceria contratada comprovada. Publicidade deve permanecer distinta de alertas e não comprar confirmação de relatos ou prioridade no atendimento público.
-
-Veja a [visão do produto e modelo de negócio](docs/visao-do-produto.md), incluindo transparência municipal e rotas em desastres como propostas futuras.
-
-Widgets, avisos distribuídos em tempo real, votação pública, encaminhamento oficial e rotas para desastres são propostas futuras. Ranking, medalhas e recompensas aparecem como demonstrações. Os seis GIFs de ação do mascote aguardam quadros próprios. A interface usa o PNG com transparência e respeita a preferência por movimento reduzido. [Guia de produção e fallback do P.I.T.](assets/mascot/animations/README.md)
-
+Consulte a [visão do CityWatch](docs/visao-do-produto.md) para ver o que já funciona, o que queremos construir e o que cada ideia precisa para sair do papel.
 
 ## Acessibilidade, inclusão e privacidade
 

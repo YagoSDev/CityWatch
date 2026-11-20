@@ -1,7 +1,7 @@
 {
   ".env.example": "a908a65b07b8f64fe29279f605bdd4d0604ff29742f76df8fd24308bbd422888",
   ".gitignore": "b13e53a59989db824f92dcc739a94c89bc7797b315789bf7eeeb6818f4c57508",
-  "README.md": "6eee738f1bcce35f2af353589c3c244eb769ebd122f9d25fac6f58966a5622a4",
+  "README.md": "bd3d18854c8a30f28f0b6d4babd53bf556fbf378459ce0c49652f33839d9c2e9",
   "app.json": "d5401b360566c7c104d3e3ce31bb67281c8720f3de5dd89df4d0ba4bd6b69300",
   "entrega/PENDENCIAS.md": "1d71c4ac0f232ba6808e7583421fe93077d2e7ddbcfd24186b0b3cf70fa2af2d",
   "eslint.config.js": "70c216ea657c8a2dda710ad680bf21634a09f7a286bd259c210f2808ace88c36",
@@ -76,7 +76,7 @@
   "docs/atribuicao_modelo.md": "533ce8064ede3f5397472f33d85024375640836306808af4415adccd5f2fcc38",
   "docs/cidade-e-imagens.md": "051c8ae931f287b11711a952ea8ca8dcbd5cf0fa7535c4bf767de48aec3b2ea9",
   "docs/falas-camera.md": "ce7ad2121cb06fa9a769d34e676873819c6facdb082d600a70c355f4befe0691",
-  "docs/visao-do-produto.md": "adfde15cac34a726ef4ed59be7f4a76808f29a53f42a3d7c44c362faf2f1965d",
+  "docs/visao-do-produto.md": "48b571bb11c13a521f18dacbc6ef79ad9509042dc3b65d63f5972b5c758e1606",
   "docs/mapa-interativo.md": "d463da8397d2a5dae1e4eabe3f6fcdb7a09671dfd745a42fe1bfb14dbe2188c6",
   "docs/agenda-calendario.md": "20b95d4804205894046057ac409db98963aa1f75ed76976f365fe35aea02fa7f",
   "docs/home-mapa-agenda.md": "fb263650fcb93e500e40eca5dcb3a1e88a8402b58b461c5dc702c866ff85f300",
